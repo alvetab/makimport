@@ -1,16 +1,7 @@
 package test;
 
-import java.io.IOException;
-import java.util.List;
-
-import javax.swing.JOptionPane;
-
-import JPA.Accesoriolist;
-import capturamak.capturadatos;
 import capturamak.capturaweb;
 import capturamak.extraerdatos;
-import entities.Accesorio;
-import entities.Array_separadores;
 
 
 public class Capturarmakita {
@@ -19,9 +10,9 @@ public class Capturarmakita {
 	//public static void main(String[] args) throws IOException{
 		
 		public Capturarmakita(){
-		//String urlmodelo=new String("http://www.makita.es/tool/22131/BO6050J.html");
+		String urlmodelo=new String("http://www.makita.es/tool/22131/BO6050J.html");
 		//String urlmodelo=new String("http://www.makita.es/accessory/19471/B-11623.html");
-		String urlmodelo=new String("http://www.dolmar.com.es/tool/22776/111_45.html");
+		//String urlmodelo=new String("http://www.dolmar.com.es/tool/22776/111_45.html");
 		//Array_separadores listasepar= new Array_separadores();
 		datosextraidos="";		
 		/*System.out.println();
@@ -79,7 +70,7 @@ public class Capturarmakita {
 		
 		
 		
-		System.exit(0);
+		//System.exit(0);
 	}
 	private static String datosextraidos;
 	
