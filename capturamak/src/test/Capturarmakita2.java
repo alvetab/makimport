@@ -13,7 +13,7 @@ import entities.Accesorio;
 import entities.Array_separadores;
 
 
-public class Main {
+public class Capturarmakita2 {
 
 
 	public static void main(String[] args) throws IOException{
