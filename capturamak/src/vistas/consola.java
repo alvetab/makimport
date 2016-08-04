@@ -11,6 +11,6 @@ import java.io.*;
 
 public class consola{
     public static void main( String [] args ) throws InterruptedException  {
-  new Provafestool();
+  new Capturarmakita();
     }
 }

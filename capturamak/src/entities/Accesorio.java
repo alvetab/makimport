@@ -52,6 +52,7 @@ public class Accesorio implements Serializable {
 	private int idcategoria;
 
 	@Id
+	
 	private int idprod;
 
 	@Lob
