@@ -20,7 +20,7 @@ public class AccesorioJpaDAO implements AccesorioDAO {
 	@Override
 	public List<Accesorio> listarTodos() {
 	Query q = em.createQuery("select a from Accesorio a");
-	List<Accesorio> listado =  q.getResultList();
+	List<Accesorio> listado = q.getResultList();
 		return listado;
 	}
 
@@ -40,4 +40,13 @@ public class AccesorioJpaDAO implements AccesorioDAO {
 		em.close();
 		PersistenceManager.INSTANCE.close();
 	}
+
+	public List listaruno(String modelo) {
+		//Query q = em.createQuery("select a from Accesorio a");
+		return em.createQuery("select a from Accesorio a  where a.accesorios LIKE :custName")
+		.setParameter("custName", modelo)
+		.getResultList();
+			
+		}
+	
 }

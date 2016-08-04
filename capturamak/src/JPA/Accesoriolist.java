@@ -22,4 +22,7 @@ public class Accesoriolist {
   public List<Accesorio> listarTodos() {
 	return accesorioDAOlist.listarTodos();
 	}
+  public List<Accesorio> listaruno() {
+		return accesorioDAOlist.listaruno();
+		}
 } 

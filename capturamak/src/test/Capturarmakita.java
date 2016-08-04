@@ -29,7 +29,7 @@ public class Capturarmakita {
 		
 		
 		
-		datosextraidos=extraerdatos.modelomaquina(html_Capturado);
+		/*datosextraidos=extraerdatos.modelomaquina(html_Capturado);
 		System.out.println(datosextraidos);		
 		
 		datosextraidos=datosextraidos + extraerdatos.familia(html_Capturado);
@@ -54,8 +54,8 @@ public class Capturarmakita {
 		System.out.println(datosextraidos);
 		
 		datosextraidos=datosextraidos + extraerdatos.especificacionesaccesorios(html_Capturado);
-		System.out.println(datosextraidos);
-		
+		System.out.println(datosextraidos); */
+		/*
 		AccesorioDAO accesoriolist = new AccesorioJpaDAO();
 		Accesorio accesorio = new Accesorio();
 		accesorio.setAccesorios(extraerdatos.modelomaquina(html_Capturado));
@@ -67,19 +67,18 @@ public class Capturarmakita {
 		accesorio.setOtros(extraerdatos.tabotros(html_Capturado));
 		accesorio.setInformacionproducto(extraerdatos.tabequipo(html_Capturado));
 		accesorio.setManualinstrucciones(extraerdatos.especificacionesaccesorios(html_Capturado));
-		accesoriolist.crear(accesorio); 
-		
-			
+		accesoriolist.crear(accesorio); */
 		
 		
 		
-		/*
+		
+		AccesorioDAO accesoriolist = new AccesorioJpaDAO();
 		Accesoriolist listado=new Accesoriolist();
-		List<Accesorio> listas= listado.listarTodos();
+		List<Accesorio> listas= listado.listaruno();
 		for (Accesorio lista : listas){
 		System.out.println(lista);
 		}		
-		*/
+		
 		/* AddressDAO  addressDAOlist = new AddressJpaDAO();
 		 Address address = new Address();
 		 address.setCity("Dhaka");
@@ -95,6 +94,6 @@ public class Capturarmakita {
 		//System.exit(0);
 	}
 	private static String datosextraidos;
-	//private static AccesorioDAO accesorio;
+	
 	
 }
