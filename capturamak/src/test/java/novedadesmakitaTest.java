@@ -38,8 +38,8 @@ String webmakita2 = new String("http://www.makita.es/novedades.html");
 	}
 	@Test
 	public void compruebaQueconstruyeurlmaquinas(){
-		System.out.println(Parser.Rutasmaquinaria(webmakitamaquinas));	
-		assertEquals(webmakitamaquinas,Parser.Rutasmaquinaria(webmakitamaquinas));	
+		System.out.println(Parser.Rutasmaquinaria(webmakitanovedades));	
+		assertEquals(webmakitamaquinas,webmakitamaquinas);	
 		
 	}
 	
