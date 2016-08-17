@@ -1,21 +1,27 @@
-package test;
+package capturamak;
 
+import java.io.IOException;
 import java.util.List;
 
 import DAO.AccesorioDAO;
+import DAO.AddressDAO;
 import JPA.AccesorioJpaDAO;
 import JPA.Accesoriolist;
+import JPA.AddressJpaDAO;
 import capturamak.capturaweb;
 import capturamak.extraerdatos;
 import entities.Accesorio;
+import entities.Address;
 
 
 public class Capturarmakita {
 
 
-	//public static void main(String[] args) throws IOException{
+	public static void main(String[] args) throws IOException{
 		
-		public Capturarmakita(){
+	
+		
+		//public Capturarmakita(){
 		String urlmodelo=new String("http://www.makita.es/tool/22131/BO6050J.html");
 		//String urlmodelo=new String("http://www.makita.es/accessory/19471/B-11623.html");
 		//String urlmodelo=new String("http://www.dolmar.com.es/tool/22776/111_45.html");
@@ -24,7 +30,7 @@ public class Capturarmakita {
 		/*System.out.println();
 		String urlmodelo=JOptionPane.showInputDialog("ingrese url del modelo a actualizar"); 
 		*/		
-		String html_Capturado = capturaweb.url_web(urlmodelo);
+		//String html_Capturado = capturaweb.url_web(urlmodelo);
 		
 		
 		
@@ -71,29 +77,35 @@ public class Capturarmakita {
 		
 		
 		
+		System.out.println("alll");
 		
 		AccesorioDAO accesoriolist = new AccesorioJpaDAO();
 		Accesoriolist listado=new Accesoriolist();
-		List<Accesorio> listas= listado.listaruno();
-		for (Accesorio lista : listas){
-		System.out.println(lista);
-		}		
 		
-		/* AddressDAO  addressDAOlist = new AddressJpaDAO();
+		String lista = accesoriolist.listardos("modelo",200);
+		List<Accesorio> listas= listado.listarTodos();
+		
+		
+		for (Accesorio listados : listas){
+		System.out.println(listados);
+		System.out.println("alll");
+		}	
+		System.out.println(lista);
+		/*
+		 AddressDAO  addressDAOlist = new AddressJpaDAO();
 		 Address address = new Address();
 		 address.setCity("Dhaka");
 		 address.setCountry("Bangladesh");
 		 address.setPostcode("2000");
 		 address.setStreet("Poribagh");
 		 
-		 addressDAOlist.crear(address);*/
+		 addressDAOlist.crear(address);
 		 
 		
 		
-		
-		//System.exit(0);
+		*/
+		System.exit(0);
 	}
 	private static String datosextraidos;
-	
-	
-}
+	}
+

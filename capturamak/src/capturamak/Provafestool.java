@@ -1,18 +1,20 @@
-package test;
+package capturamak;
 
 import java.io.IOException;
 
 import capturamak.capturaweb;
-import capturamak.extraerdatos;
+import capturamak.extraerdatosfestool;
 
 
-public class Capturarmakita2 {
+public class Provafestool {
 
 
-	public static void main(String[] args) throws IOException{
+	public static void main(String[] args) throws IOException{}
 		
+		public Provafestool(){
+		String urlmodelo=new String("https://www.festool.es/Productos/Pages/Product-Detail.aspx?pid=561551&name=Sierra-de-incisi-n-TS-55-R-EBQ-Plus");
 		//String urlmodelo=new String("http://www.makita.es/tool/22131/BO6050J.html");
-		String urlmodelo=new String("http://www.makita.es/accessory/19471/B-11623.html");
+		//String urlmodelo=new String("http://www.makita.es/accessory/19471/B-11623.html");
 		//String urlmodelo=new String("http://www.dolmar.com.es/tool/22776/111_45.html");
 		//Array_separadores listasepar= new Array_separadores();
 		datosextraidos="";		
@@ -21,31 +23,31 @@ public class Capturarmakita2 {
 		*/		
 		String html_Capturado = capturaweb.url_web(urlmodelo);
 		
-		datosextraidos=extraerdatos.modelomaquina(html_Capturado);
+		datosextraidos=extraerdatosfestool.modelomaquina(html_Capturado);
 		System.out.println(datosextraidos);		
 		
-		datosextraidos=datosextraidos + extraerdatos.familia(html_Capturado);
+		datosextraidos=datosextraidos + extraerdatosfestool.familia(html_Capturado);
 		System.out.println(datosextraidos);
 		
-		datosextraidos=datosextraidos + extraerdatos.fotos1(html_Capturado);
+		datosextraidos=datosextraidos + extraerdatosfestool.fotos1(html_Capturado);
 		System.out.println(datosextraidos);
 		
-		datosextraidos=extraerdatos.tabgeneral(html_Capturado);
+		datosextraidos=extraerdatosfestool.tabgeneral(html_Capturado);
 		System.out.println(datosextraidos);		
 		
-		datosextraidos=datosextraidos + extraerdatos.tabprestaciones(html_Capturado);
+		datosextraidos=datosextraidos + extraerdatosfestool.tabprestaciones(html_Capturado);
 		System.out.println(datosextraidos);
 		
-		datosextraidos=datosextraidos + extraerdatos.tabespecificaciones(html_Capturado);
+		datosextraidos=datosextraidos + extraerdatosfestool.tabespecificaciones(html_Capturado);
 		System.out.println(datosextraidos);
 		
-		datosextraidos=datosextraidos + extraerdatos.tabotros(html_Capturado);
+		datosextraidos=datosextraidos + extraerdatosfestool.tabotros(html_Capturado);
 		System.out.println(datosextraidos);
 		
-		datosextraidos=datosextraidos + extraerdatos.tabequipo(html_Capturado);
+		datosextraidos=datosextraidos + extraerdatosfestool.tabequipo(html_Capturado);
 		System.out.println(datosextraidos);
 		
-		datosextraidos=datosextraidos + extraerdatos.especificacionesaccesorios(html_Capturado);
+		datosextraidos=datosextraidos + extraerdatosfestool.especificacionesaccesorios(html_Capturado);
 		System.out.println(datosextraidos);
 		
 				
@@ -71,8 +73,8 @@ public class Capturarmakita2 {
 		
 		
 		
-		System.exit(0);
+		//System.exit(0);
 	}
 	private static String datosextraidos;
-	
-}
+	}
+

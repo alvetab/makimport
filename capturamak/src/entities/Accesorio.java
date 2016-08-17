@@ -1,7 +1,11 @@
 package entities;
 
 import java.io.Serializable;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Vector;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -281,6 +285,42 @@ public class Accesorio implements Serializable {
 
 	public void setTotal(BigDecimal total) {
 		this.total = total;
+	}
+	
+	public String[] creaarray() {
+		ArrayList<String> paratabla = new ArrayList<String>();
+		try {
+	    
+		Class<?> objClase = getClass();
+	    Field[] arCampos;
+	    String sTipo;
+
+	    while (null != objClase
+	           && !Object.class.getSimpleName().equals(objClase.getSimpleName())) {
+	      arCampos = objClase.getDeclaredFields();
+	      if (null != arCampos) {
+	        // Recorre los campos del objeto. Si es una constante omite su lectura.
+	        for (Field objCampo : arCampos) {
+	          sTipo = objCampo.getType().toString();
+	          if (!Modifier.isFinal(objCampo.getModifiers())
+	              || (sTipo.startsWith("class")
+	              && !sTipo.endsWith(String.class.getCanonicalName()))) {
+	            objCampo.setAccessible(true);
+	            paratabla.add(objCampo.getName().toString());
+	            paratabla.add((String.valueOf(objCampo.get(this)))) ;
+	           }
+	        }
+	      }
+	 
+	      // Pasa a la siguiente clase padre.
+	      objClase = objClase.getSuperclass();
+	    }
+	  } catch (final IllegalArgumentException e) {
+	  } catch (IllegalAccessException e) {
+	  }
+	  String[] arraystringdatos = paratabla.toArray(new String[paratabla.size()]);
+	  return arraystringdatos;
+	  
 	}
 
 	@Override
