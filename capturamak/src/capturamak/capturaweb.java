@@ -6,18 +6,25 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 public class capturaweb {
-static String htmlString;
-	public static String url_web(String urlmodelo) {
-		 Document doc2;
+	 Document datosCapturados;
+	 
+	 public  capturaweb(String urlmodelo) {
 		try {
-
-			// capturar datos tecnicos
-			doc2 = Jsoup.connect(urlmodelo).timeout(0).get();
-			htmlString = doc2.toString();
-
+			// capturar web 
+			datosCapturados = Jsoup.connect(urlmodelo).timeout(0).get();
+			//htmlString = doc2.toString();
+		
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println( "Algo ha fallado, Tal vez la web a importar no es correcta. Recuerde incluir el http://"+ e);
+		
+		}  catch (IllegalArgumentException e) {
+			System.out.println( "Algo ha fallado, Tal vez la web a importar no es correcta.Recuerde incluir el http:// "+ e);
+			
 		}
-		return htmlString;
-	}
+		}
+	
+	 public Document getDatosCapturados() {
+			return datosCapturados;
+		}
+			 	 
 }

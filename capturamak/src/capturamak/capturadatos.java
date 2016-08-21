@@ -7,8 +7,10 @@ import org.jsoup.examples.HtmlToPlainText;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import com.sun.media.sound.ModelOscillator;
 
 import entities.Accesorio;
+import entities.Accesoriosbak;
 
 
 public class capturadatos {
@@ -47,5 +49,21 @@ public class capturadatos {
 
 private String datosconseguidos;
 private String result;
+
+
+
+/*ModelO --ya
+categoria --ya
+descripcion --ya
+descripcion corta
+descripcion General
+prestaciones
+tecnicas
+otros
+equipo y Accesorios
+
+fotos
+*/
+
 }
 

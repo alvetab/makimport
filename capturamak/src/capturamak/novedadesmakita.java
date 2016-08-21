@@ -7,7 +7,7 @@ public class novedadesmakita {
 			
 		
 	public novedadesmakita(String webmakita){
-		listadoUrlsnovedades = Parser.RutasNovedades(webmakita);
+		listadoUrlsnovedades = listasurls.capturaurls(webmakita);
 		
 		//for (ArrayList<String> novedad: listadoUrlsnovedades){
 			System.out.println(listadoUrlsnovedades.toString());			
