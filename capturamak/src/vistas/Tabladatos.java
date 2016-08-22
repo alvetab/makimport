@@ -19,10 +19,10 @@ import org.omg.CORBA.PUBLIC_MEMBER;
 import com.sun.javafx.collections.ElementObservableListDecorator;
 import com.sun.org.apache.xml.internal.dtm.ref.dom2dtm.DOM2DTMdefaultNamespaceDeclarationNode;
 
-import DAO.AccesorioDAO;
-import JPA.AccesorioJpaDAO;
-import JPA.Accesoriolist;
-import entities.Accesorio;
+import capturamak.temp.Accesorio;
+import capturamak.temp.AccesorioDAO;
+import capturamak.temp.AccesorioJpaDAO;
+import capturamak.temp.Accesoriolist;
 
 import javax.swing.JTable;
 import javax.swing.JScrollPane;

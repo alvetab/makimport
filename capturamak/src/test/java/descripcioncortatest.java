@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import capturamak.ExcepcionIntervalo;
-import capturamak.capturaweb;
+import capturamak.capturahtml;
 import capturamak.descripcion;
 
 public class descripcioncortatest {
@@ -29,7 +29,7 @@ public class descripcioncortatest {
 	@Test
 	public void compruebadescripciontest() throws ExcepcionIntervalo {
 	try {
-	 capturaweb html= new capturaweb(web3);	
+	 capturahtml html= new capturahtml(web3);	
 	 descripcion descripcion = new descripcion(html.getDatosCapturados());
 	 String actual = descripcion.getdescripcion();
 	 System.out.println(actual); 

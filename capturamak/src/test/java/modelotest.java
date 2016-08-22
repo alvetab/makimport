@@ -12,7 +12,7 @@ import com.mysql.fabric.xmlrpc.base.Array;
 import com.sun.org.apache.bcel.internal.generic.NEW;
 
 import capturamak.arbolcategoria;
-import capturamak.capturaweb;
+import capturamak.capturahtml;
 import capturamak.modelo;
 
 public class modelotest {
@@ -34,14 +34,14 @@ String web3= new String("htt://www.dolmar.com.es/accessory/28907/794530-8.html")
 	@Test
 	public void modelotest() {
 	 modelo recibido = new modelo();
-	 capturaweb html = new capturaweb(web1);
+	 capturahtml html = new capturahtml(web1);
 	 String actual=recibido.getmodelo( html.getDatosCapturados());
 	assertEquals("1050DWD", actual); 
 	}
 	
 	@Test
 	public void arbolcategoriatest() {
-	capturaweb html = new capturaweb(web2);
+	capturahtml html = new capturahtml(web2);
 	arbolcategoria arbol = new arbolcategoria(html.getDatosCapturados());
 	
 	ArrayList<String> recibido =arbol.getarbolcompleto();
@@ -53,7 +53,7 @@ String web3= new String("htt://www.dolmar.com.es/accessory/28907/794530-8.html")
 	
 	@Test
 	public void getpadretest() {
-	 capturaweb html = new capturaweb(web2);
+	 capturahtml html = new capturahtml(web2);
 	 arbolcategoria arbol = new arbolcategoria(html.getDatosCapturados());
 	 System.out.println(arbol.getpadre());
 	 assertEquals("despiece", arbol.getpadre()); 
@@ -61,7 +61,7 @@ String web3= new String("htt://www.dolmar.com.es/accessory/28907/794530-8.html")
 	
 	@Test
 	public void getrecursivatest() {
-	 capturaweb html = new capturaweb(web3);
+	 capturahtml html = new capturahtml(web3);
 	 arbolcategoria arbol = new arbolcategoria(html.getDatosCapturados());
 	 ArrayList<String> recibido =arbol.getarbolcompleto();
 	 
@@ -77,7 +77,7 @@ String web3= new String("htt://www.dolmar.com.es/accessory/28907/794530-8.html")
 	
 	@Test
 	public void getpadrerecursivatest() {
-		 capturaweb html = new capturaweb(web3);
+		 capturahtml html = new capturahtml(web3);
 		 arbolcategoria arbol = new arbolcategoria(html.getDatosCapturados());
 		 ArrayList<String> recibidos = arbol.getarbolcompleto();
 		 String padre = arbol.getpadre(recibidos);

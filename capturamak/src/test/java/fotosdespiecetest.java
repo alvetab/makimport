@@ -11,7 +11,7 @@ import org.junit.validator.PublicClassValidator;
 
 import capturamak.arbolcategoria;
 import capturamak.capturafotos;
-import capturamak.capturaweb;
+import capturamak.capturahtml;
 import capturamak.fotosdespiece;
 import capturamak.modelo;
 
@@ -43,7 +43,7 @@ public class fotosdespiecetest {
 	@Test
 	public void fotostest() {
 	 modelo recibido = new modelo();
-	 capturaweb html = new capturaweb(web3);
+	 capturahtml html = new capturahtml(web3);
 	 fotosarray=new fotosdespiece(html.getDatosCapturados());
 	 
 	 String actual= fotosarray.toString();
@@ -52,7 +52,7 @@ public class fotosdespiecetest {
 	
 
 	public void arbolcategoriatest() {
-	capturaweb html = new capturaweb(web2);
+	capturahtml html = new capturahtml(web2);
 	arbolcategoria arbol = new arbolcategoria(html.getDatosCapturados());
 	
 	ArrayList<String> recibido =arbol.getarbolcompleto();
@@ -64,7 +64,7 @@ public class fotosdespiecetest {
 	
 	
 	public void getpadretest() {
-	 capturaweb html = new capturaweb(web2);
+	 capturahtml html = new capturahtml(web2);
 	 arbolcategoria arbol = new arbolcategoria(html.getDatosCapturados());
 	 System.out.println(arbol.getpadre());
 	 assertEquals("despiece", arbol.getpadre()); 
@@ -72,7 +72,7 @@ public class fotosdespiecetest {
 	
 	
 	public void getrecursivatest() {
-	 capturaweb html = new capturaweb(web3);
+	 capturahtml html = new capturahtml(web3);
 	 arbolcategoria arbol = new arbolcategoria(html.getDatosCapturados());
 	 ArrayList<String> recibido =arbol.getarbolcompleto();
 	 
@@ -88,7 +88,7 @@ public class fotosdespiecetest {
 	
 	
 	public void getpadrerecursivatest() {
-		 capturaweb html = new capturaweb(web3);
+		 capturahtml html = new capturahtml(web3);
 		 arbolcategoria arbol = new arbolcategoria(html.getDatosCapturados());
 		 ArrayList<String> recibidos = arbol.getarbolcompleto();
 		 String padre = arbol.getpadre(recibidos);

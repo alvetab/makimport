@@ -10,7 +10,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import capturamak.capturaweb;
+import capturamak.capturahtml;
 
 public class capturawebtest {
     int i;
@@ -26,7 +26,7 @@ public class capturawebtest {
 
 	@Test
 	public void test() {
-		capturaweb webacapturar = new capturaweb("makita");
+		capturahtml webacapturar = new capturahtml("makita");
 		//webacapturar.url_web(urlmodelo)
 		System.out.println(webacapturar.toString());
 		assertThat(webacapturar.getDatosCapturados(),is(nullValue()));
@@ -35,7 +35,7 @@ public class capturawebtest {
 	@Test //web correcta no da fallo
 	public void getcapturatest() {
 	
-		capturaweb webacapturar = new capturaweb("http://www.google.es");
+		capturahtml webacapturar = new capturahtml("http://www.google.es");
 		Document doc2= webacapturar.getDatosCapturados();
 		System.out.println(doc2.toString());
 		if (doc2.toString().indexOf("google")!=-1) {

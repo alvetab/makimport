@@ -9,11 +9,12 @@ import org.junit.Test;
 import capturamak.ExcepcionIntervalo;
 import capturamak.capturahtml;
 import capturamak.descripcion;
+import capturamak.prestaciones;
 
-public class descripciontest {
+public class prestacionestest {
 	String web1= new String("http://www.makita.es/parts.html?model=1050DWD&filter=");
 	String web2= new String("http://www.dolmar.com.es/tool/22825/EV3213.html");
-	String web3= new String("http://www.makita.es/tool/22096/JN3201J.html");
+	String web3= new String("http://www.makita.es/accessory/19767/B-08143.html");
 	String web4= new String("http://www.makita.es/servicios-tecnicos.html");
 	
 	
@@ -29,18 +30,16 @@ public class descripciontest {
 	@Test
 	public void compruebadescripciontest() throws ExcepcionIntervalo {
 	try {
-	 capturahtml html= new capturahtml(web3);	
-	 descripcion descripcion = new descripcion(html.getDatosCapturados());
-	 String actual = descripcion.getdescripcion();
+	 capturahtml html= new capturahtml(web2);	
+	 prestaciones prestaciones = new prestaciones(html.getDatosCapturados());
+	 String actual = prestaciones.getprestaciones();
+	 String actual1 = prestaciones.getprestacioneshtml();
 	 System.out.println(actual); 
+	 System.out.println(actual1); 
 	 assertEquals("1050DWD", actual); 
 	
 	} catch (Exception e) {
-		System.out.println("No hay descripcion ni modelo que capturar en esta pagina" + e);
+		System.out.println("No hay prestaciones que capturar en esta pagina" + e);
 	}
-	 
-	 
-	 
 	}
-
 }

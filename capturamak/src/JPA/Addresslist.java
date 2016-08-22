@@ -1,8 +1,9 @@
 package JPA;
 import java.util.List;
 
-import DAO.AddressDAO;
-import entities.Address;
+import capturamak.temp.Address;
+import capturamak.temp.AddressDAO;
+import capturamak.temp.AddressJpaDAO;
 
 public class Addresslist {
    

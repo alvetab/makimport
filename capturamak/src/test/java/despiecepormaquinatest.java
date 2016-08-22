@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import capturamak.ExcepcionIntervalo;
-import capturamak.capturaweb;
+import capturamak.capturahtml;
 import capturamak.descripcion;
 import capturamak.despiecepormaquina;
 
@@ -34,7 +34,7 @@ public class despiecepormaquinatest {
 	{
 	 
 	
-	 capturaweb html= new capturaweb(web1);	
+	 capturahtml html= new capturahtml(web1);	
 	 despiecepormaquina despiecepormodelo = new despiecepormaquina(html.getDatosCapturados());
 	 ArrayList<String> actual = despiecepormodelo.getposicion();
 	 System.out.println(actual.toString()); 

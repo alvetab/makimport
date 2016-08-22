@@ -20,7 +20,6 @@ public class descripcion{
 			Elements descripcioncapturada = html_capturado.getElementsByClass("product_item_info_content_title");	
 			if (!descripcioncapturada.isEmpty())
 				{
-			
 				for (Element descripcion : descripcioncapturada)
 					{		
 					this.descripcion = (descripcion.text());
