@@ -1,19 +1,17 @@
-package model;
+package entities;
 
 import java.io.Serializable;
-import java.util.List;
-
-import javax.persistence.*;
-
-import JPA.PersistenceManager;
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
 /**
  * The persistent class for the urlsmaqdol database table.
  * 
  */
 @Entity
-@NamedQuery(name="Urlsmaqdol.findAll", query="SELECT u FROM Urlsmaqdol u")
+@NamedQuery(name = "Urlsmaqdol.findAll", query = "SELECT u FROM Urlsmaqdol u")
 public class Urlsmaqdol implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -23,8 +21,8 @@ public class Urlsmaqdol implements Serializable {
 	private boolean activo;
 
 	private boolean capturado;
-	
-	@Column(unique=true, nullable=false)
+
+	@Column(unique = true, nullable = false)
 	private String modelo;
 
 	private int tipo;
@@ -34,15 +32,15 @@ public class Urlsmaqdol implements Serializable {
 	public Urlsmaqdol() {
 		super();
 	}
-	public Urlsmaqdol(String modelo,String url, int tipo, boolean capturado, boolean activo) {
+
+	public Urlsmaqdol(String modelo, String url, int tipo, boolean capturado, boolean activo) {
 		setModelo(modelo);
 		setUrl(url);
 		setTipo(tipo);
 		setCapturado(capturado);
 		setActivo(activo);
 	}
-	
-	
+
 	public int getId() {
 		return this.id;
 	}

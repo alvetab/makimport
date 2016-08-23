@@ -6,17 +6,17 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-public class despiecepormaquina {
-	ArrayList<String> nombremodelo,posicion,codigo,nombre;
+public class Capturadespiecepormaquina {
+	ArrayList<String> modelo,posicion,codigopieza,descripcion;
 
-	public despiecepormaquina(Document html_capturado) {
+	public Capturadespiecepormaquina(Document html_capturado) {
 		modelo capturamodelo=new modelo();
 		String capturadomodelo = capturamodelo.getmodelo(html_capturado); 
 		
-		nombremodelo= new ArrayList<String>();			
+		modelo= new ArrayList<String>();			
 		posicion= new ArrayList<String>();
-		codigo = new ArrayList<String>();
-		nombre = new ArrayList<String>(); 
+		codigopieza = new ArrayList<String>();
+		descripcion = new ArrayList<String>(); 
 
 		Elements datosenbruto = html_capturado.getElementsByClass("parts_items_table");
 		if (!datosenbruto.isEmpty()) {
@@ -26,10 +26,10 @@ public class despiecepormaquina {
 					Elements datosenbruto4 = datosenbruto3.getElementsByTag("td");
 						//for (Element datosenbruto5 : datosenbruto4) {
 							if (!datosenbruto4.isEmpty()){
-							nombremodelo.add(capturadomodelo);
+							modelo.add(capturadomodelo);
 							posicion.add(datosenbruto4.get(0).text());
-							codigo.add(datosenbruto4.get(1).text());
-							nombre.add(datosenbruto4.get(2).text());
+							codigopieza.add(datosenbruto4.get(1).text());
+							descripcion.add(datosenbruto4.get(2).text());
 							}
 							else {System.out.println("No contiene datos a extraer");}
 							}
@@ -41,19 +41,35 @@ public class despiecepormaquina {
 		}
 	} 
 	
+	public ArrayList<String> getnombremodelo() {
+		return modelo;
+	}
+	
+	public String getnombremodelo(int i) {
+		return modelo.get(i);
+	}
 	public ArrayList<String> getposicion() {
 		return posicion;
 	}
+	public String getposicion(int i) {
+		return posicion.get(i);
+	}
 	
 	public ArrayList<String> getcodigo() {
-		return codigo;
+		return codigopieza;
 	}
 	
-	public ArrayList<String> getnombre() {
-		return nombre;
+	public String getcodigo(int i) {
+		return codigopieza.get(i);
 	}
 	
-	public ArrayList<String> getnombremodelo() {
-		return nombremodelo;
+	public ArrayList<String> getdescripcion() {
+		return descripcion;
 	}
+	
+	public String getdescripcion(int i) {
+		return descripcion.get(i);
+	}
+	
+	
 }

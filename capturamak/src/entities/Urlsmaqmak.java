@@ -1,15 +1,17 @@
-package model;
+package entities;
 
 import java.io.Serializable;
-import javax.persistence.*;
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
 /**
  * The persistent class for the urlsmaqmak database table.
  * 
  */
 @Entity
-@NamedQuery(name="Urlsmaqmak.findAll", query="SELECT u FROM Urlsmaqmak u")
+@NamedQuery(name = "Urlsmaqmak.findAll", query = "SELECT u FROM Urlsmaqmak u")
 public class Urlsmaqmak implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -19,8 +21,8 @@ public class Urlsmaqmak implements Serializable {
 	private boolean activo;
 
 	private boolean capturado;
-	
-	@Column(unique=true, nullable=false)
+
+	@Column(unique = true, nullable = false)
 	private String modelo;
 
 	private int tipo;
@@ -28,17 +30,17 @@ public class Urlsmaqmak implements Serializable {
 	private String url;
 
 	public Urlsmaqmak() {
-	super();
+		super();
 	}
-	
-	public Urlsmaqmak(String modelo,String url, int tipo, boolean capturado, boolean activo) {
+
+	public Urlsmaqmak(String modelo, String url, int tipo, boolean capturado, boolean activo) {
 		setModelo(modelo);
 		setUrl(url);
 		setTipo(tipo);
 		setCapturado(capturado);
 		setActivo(activo);
 	}
-	
+
 	public int getId() {
 		return this.id;
 	}

@@ -1,20 +1,18 @@
-package model;
+package entities;
 
 import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 
-
 /**
- * The persistent class for the urlsaccdol database table.
+ * The persistent class for the urlsdocsmak database table.
  * 
  */
 @Entity
-@NamedQuery(name="Urlsaccdol.findAll", query="SELECT u FROM Urlsaccdol u")
-public class Urlsaccdol implements Serializable {
+@NamedQuery(name = "Urlsdocsmak.findAll", query = "SELECT u FROM Urlsdocsmak u")
+public class Urlsdocsmak implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -23,26 +21,26 @@ public class Urlsaccdol implements Serializable {
 	private boolean activo;
 
 	private boolean capturado;
-	
-	@Column(unique=true, nullable=false)
+
+	@Column(unique = true, nullable = false)
 	private String modelo;
 
 	private int tipo;
 
 	private String url;
 
-	public Urlsaccdol() {
+	public Urlsdocsmak() {
 		super();
 	}
-	public Urlsaccdol(String modelo,String url, int tipo, boolean capturado, boolean activo) {
+
+	public Urlsdocsmak(String modelo, String url, int tipo, boolean capturado, boolean activo) {
 		setModelo(modelo);
 		setUrl(url);
 		setTipo(tipo);
 		setCapturado(capturado);
 		setActivo(activo);
 	}
-	
-	
+
 	public int getId() {
 		return this.id;
 	}

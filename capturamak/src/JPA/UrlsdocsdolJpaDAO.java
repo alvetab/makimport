@@ -1,35 +1,37 @@
 package JPA;
 
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import DAO.UrlsmaqdolDAO;
-import entities.Urlsmaqdol;
+import org.hibernate.annotations.Where;
+
+import DAO.UrlsdocsdolDAO;
+import entities.Urlsdocsdol;
 
 
-
-public class UrlsmaqdolJpaDAO implements UrlsmaqdolDAO {
+public class UrlsdocsdolJpaDAO implements UrlsdocsdolDAO {
 	private EntityManager em;
 		
-	public UrlsmaqdolJpaDAO() {
+	public UrlsdocsdolJpaDAO() {
 	em = PersistenceManager.INSTANCE.getEntityManager();
 	}
 	
 	
 	@Override
-	public List<Urlsmaqdol> listarTodos() {
-	Query q = em.createQuery("select a from Urlsmaqdol a");
-	List<Urlsmaqdol> listado =  q.getResultList();
+	public List<Urlsdocsdol> listarTodos() {
+	Query q = em.createQuery("select a from Urlsdocsdol a");
+	List<Urlsdocsdol> listado =  q.getResultList();
 		return listado;
 	}
 
 	@Override
-	public void crear(Urlsmaqdol urlsmaqdol) {
+	public void crear(Urlsdocsdol urlsdocsdol) {
 		em.getTransaction().begin();
-		em.persist(urlsmaqdol);
+		em.persist(urlsdocsdol);
 		em.getTransaction().commit();
 		em.close();
 		PersistenceManager.INSTANCE.close();
@@ -44,17 +46,17 @@ public class UrlsmaqdolJpaDAO implements UrlsmaqdolDAO {
 	
 	@Override
 	public String geturl(int i) {
-		Urlsmaqdol urlsmaqdol = em.find(Urlsmaqdol.class,i);
-		String url = urlsmaqdol.getUrl();
+		Urlsdocsdol urlsdocsdol = em.find(Urlsdocsdol.class,i);
+		String url = urlsdocsdol.getUrl();
 		return url;
 	}
 
 
 	public void crear(String string, String string2, int i, boolean b, boolean c) throws SQLException{
 		try {
-		Urlsmaqdol urlsmaqdol = new Urlsmaqdol(string,string2,i,b,c);
+		Urlsdocsdol urlsdocsdol = new Urlsdocsdol(string,string2,i,b,c);
 		em.getTransaction().begin();
-		em.persist(urlsmaqdol);
+		em.persist(urlsdocsdol);
 		em.getTransaction().commit();
 		em.close();
 		}

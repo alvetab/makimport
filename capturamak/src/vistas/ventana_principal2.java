@@ -5,15 +5,17 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
-
-import test.Capturarmakita;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
+import org.omg.CORBA.PUBLIC_MEMBER;
+
+import com.sun.xml.internal.fastinfoset.util.ValueArray;
+
 import capturamak.TextAreaOutputStream;
+import capturamak.temp.Capturarmakita;
 
 import javax.swing.JTextField;
 import javax.swing.JCheckBox;
@@ -23,7 +25,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.Console;
 import java.io.PrintStream;
+import java.util.Properties;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -32,18 +36,18 @@ public class ventana_principal2 extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField maqmak;
+	private JTextField maqdolmar;
+	private JTextField novmak;
+	private JTextField novdol;
 	private JLabel lblNovedadDolmar;
 	private JLabel lblAccesorioMak;
-	private JTextField textField_4;
-	private JTextField textField_5;
+	private JTextField accmak;
+	private JTextField accdol;
 	private JLabel lblAccesorioDolmar;
 	private JLabel lblEnlacesALas;
-	private JTextField textField_7;
-	private JTextField textField_8;
+	private JTextField desmak;
+	private JTextField desdol;
 	/**
 	 * @wbp.nonvisual location=70,-1
 	 */
@@ -69,91 +73,104 @@ public class ventana_principal2 extends JFrame {
 	 * Create the frame.
 	 */
 	public ventana_principal2() {
+		Properties ini = new Properties();
+		ini = consola.getIni();
+		
 		JPanel panel = new JPanel();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 945, 579);
 		
 		JLabel U_makita = new JLabel("WEB MAKITA");
+		maqmak = new JTextField();
+		maqmak.setColumns(10);
+		maqmak.setText(ini.getProperty("WEB_MAKITA"));
 		
-		textField = new JTextField();
-		textField.setColumns(10);
 		
 		JLabel lblWebDolmar = new JLabel("WEB DOLMAR");
-		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
+		maqdolmar = new JTextField();
+		maqdolmar.setColumns(10);
+		maqdolmar.setText(ini.getProperty("WEB_DOLMAR"));
 		
 		JLabel lblNovedadMakita = new JLabel("NOVEDAD MAKITA");
-		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
+		novmak = new JTextField();
+		novmak.setColumns(10);
+		novmak.setText(ini.getProperty("NOVEDAD_MAKITA"));
 		
 		lblNovedadDolmar = new JLabel("NOVEDAD DOLMAR");
+		novdol = new JTextField();
+		novdol.setColumns(10);
+		novdol.setText(ini.getProperty("NOVEDAD_DOLMAR"));
+		
 		
 		lblAccesorioMak = new JLabel("ACCESORIO MAKITA");
-		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
+		accmak = new JTextField();
+		accmak.setColumns(10);
+		accmak.setText(ini.getProperty("ACCESORIO_MAKITA"));
 		
 		lblAccesorioDolmar = new JLabel("ACCESORIO DOLMAR");
+		accdol = new JTextField();
+		accdol.setColumns(10);
+		accdol.setText(ini.getProperty("ACCESORIO_DOLMAR"));
+		
 		
 		lblEnlacesALas = new JLabel("ENLACES A LAS WEBS PARA CAPTURAR");
 		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("");
+		
 		
 		JLabel lblCapturarsino = new JLabel("CAPTURAR");
-		
-		JCheckBox checkBox = new JCheckBox("");
-		
-		JCheckBox checkBox_1 = new JCheckBox("");
-		
-		JCheckBox checkBox_2 = new JCheckBox("");
-		
-		JCheckBox checkBox_3 = new JCheckBox("");
-		
-		JCheckBox checkBox_4 = new JCheckBox("");
-		
-		JCheckBox checkBox_5 = new JCheckBox("");
-		
-		JCheckBox checkBox_6 = new JCheckBox("");
-		
-		JCheckBox checkBox_7 = new JCheckBox("");
 		
 		JLabel lblProductoSulto = new JLabel("OTROS PRODUCTOS ");
 		
 		JLabel lblDespiecesMakita = new JLabel("DESPIECES MAKITA");
+		desmak = new JTextField();
+		desmak.setColumns(10);
+		desmak.setText(ini.getProperty("DESPIECES_MAKITA"));
 		
 		JLabel lblDespiecesDolmar = new JLabel("DESPIECES DOLMAR");
+		desdol = new JTextField();
+		desdol.setColumns(10);
+		desdol.setText(ini.getProperty("DESPIECES_DOLMAR"));
 		
-		textField_7 = new JTextField();
-		textField_7.setColumns(10);
+		JCheckBox cwm = new JCheckBox("");
+		cwm.setSelected((ini.getProperty("CWM").contains("1")));
+		JCheckBox cwd = new JCheckBox("");
+		cwd.setSelected((ini.getProperty("CWD").contains("1")));
+		JCheckBox cnm = new JCheckBox("");
+		cnm.setSelected((ini.getProperty("CNM").contains("1")));
+		JCheckBox cnd = new JCheckBox("");
+		cnd.setSelected((ini.getProperty("CND").contains("1")));
+		JCheckBox cam = new JCheckBox("");
+		cam.setSelected((ini.getProperty("CAM").contains("1")));
+		JCheckBox cad = new JCheckBox("");
+		cad.setSelected((ini.getProperty("CAD").contains("1")));
+		JCheckBox copsn = new JCheckBox("");
+		copsn.setSelected((ini.getProperty("COPSSN").contains("1")));
+		JCheckBox cdmsn = new JCheckBox("");
+		cdmsn.setSelected((ini.getProperty("CDMSN").contains("1")));
+		JCheckBox cddsn = new JCheckBox("");
+		cddsn.setSelected((ini.getProperty("CDDSN").contains("1")));
+		JCheckBox cdd = new JCheckBox("");
+		cdd.setSelected((ini.getProperty("CDD").contains("1")));
+		JCheckBox cdm = new JCheckBox("");
+		cdm.setSelected((ini.getProperty("CDM").contains("1")));
+		JCheckBox cop = new JCheckBox("");;
+		cop.setSelected((ini.getProperty("COPS").contains("1")));
+		JCheckBox cadsn = new JCheckBox("");
+		cadsn.setSelected((ini.getProperty("CADSN").contains("1")));
+		JCheckBox camsn = new JCheckBox("");
+		camsn.setSelected((ini.getProperty("CAMSN").contains("1")));
+		JCheckBox cndsn = new JCheckBox("");
+		cndsn.setSelected((ini.getProperty("CNDSN").contains("1")));
+		JCheckBox cnmsn = new JCheckBox("");
+		cnmsn.setSelected((ini.getProperty("CNMSN").contains("1")));
+		JCheckBox cmdsn = new JCheckBox("");
+		cmdsn.setSelected((ini.getProperty("CMDSN").contains("1")));
+		JCheckBox cmmsn = new JCheckBox("");
+		cmmsn.setSelected((ini.getProperty("CMMSN").contains("1")));
 		
-		textField_8 = new JTextField();
-		textField_8.setColumns(10);
 		
-		JCheckBox checkBox_14 = new JCheckBox("");
 		
-		JCheckBox checkBox_15 = new JCheckBox("");
 		
-		JCheckBox checkBox_16 = new JCheckBox("");
-		
-		JCheckBox checkBox_17 = new JCheckBox("");
-		
-		JCheckBox checkBox_18 = new JCheckBox("");
-		
-		JCheckBox checkBox_19 = new JCheckBox("");
-		
-		JCheckBox checkBox_20 = new JCheckBox("");
-		
-		JCheckBox checkBox_21 = new JCheckBox("");
-		
-		JCheckBox checkBox_22 = new JCheckBox("");
 		
 		JLabel lblSoloNuevos = new JLabel("SOLO NUEVOS");
 		
@@ -163,8 +180,9 @@ public class ventana_principal2 extends JFrame {
 		btnCapturar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				System.out.println("!apretado?");
-				new Capturarmakita();
+				System.out.println(maqmak.getText());
+				maqdolmar.getText();
+				//new Capturarmakita();
 				
 				
 			}
@@ -185,12 +203,13 @@ public class ventana_principal2 extends JFrame {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		
-		JTextArea textArea_1 = new JTextArea();
-		TextAreaOutputStream taos = new TextAreaOutputStream( textArea_1, 60 );
+		JTextArea consola = new JTextArea();
+		
+		TextAreaOutputStream taos = new TextAreaOutputStream( consola, 60 );
         PrintStream ps = new PrintStream( taos );
         System.setOut( ps );
         System.setErr( ps );
-        JScrollPane scroll = new JScrollPane(textArea_1);
+        JScrollPane scroll = new JScrollPane(consola);
 		
 		
 		
@@ -203,7 +222,7 @@ public class ventana_principal2 extends JFrame {
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(toolBar, GroupLayout.DEFAULT_SIZE, 919, Short.MAX_VALUE)
+						.addComponent(toolBar, GroupLayout.DEFAULT_SIZE, 929, Short.MAX_VALUE)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addContainerGap()
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
@@ -218,21 +237,29 @@ public class ventana_principal2 extends JFrame {
 											.addComponent(lblNovedadMakita, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 											.addComponent(lblNovedadDolmar, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE))
 										.addComponent(lblAccesorioDolmar)
-										.addComponent(U_makita, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE))
+										.addComponent(U_makita, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE))
 									.addPreferredGap(ComponentPlacement.RELATED)
 									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 										.addGroup(groupLayout.createSequentialGroup()
 											.addGap(3)
 											.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-												.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 519, GroupLayout.PREFERRED_SIZE)
-												.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, 519, GroupLayout.PREFERRED_SIZE)
-												.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, 519, GroupLayout.PREFERRED_SIZE)
-												.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, 519, GroupLayout.PREFERRED_SIZE)
+												.addComponent(maqdolmar, GroupLayout.PREFERRED_SIZE, 519, GroupLayout.PREFERRED_SIZE)
+												.addComponent(novmak, GroupLayout.PREFERRED_SIZE, 519, GroupLayout.PREFERRED_SIZE)
+												.addComponent(novdol, GroupLayout.PREFERRED_SIZE, 519, GroupLayout.PREFERRED_SIZE)
+												.addComponent(accmak, GroupLayout.PREFERRED_SIZE, 519, GroupLayout.PREFERRED_SIZE)
 												.addGroup(groupLayout.createSequentialGroup()
-													.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-														.addComponent(textField, GroupLayout.PREFERRED_SIZE, 519, GroupLayout.PREFERRED_SIZE)
-														.addComponent(textField_5, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 519, GroupLayout.PREFERRED_SIZE)
-														.addComponent(scrollPane, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 519, GroupLayout.PREFERRED_SIZE))
+													.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+														.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+															.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+																.addComponent(maqmak, GroupLayout.PREFERRED_SIZE, 519, GroupLayout.PREFERRED_SIZE)
+																.addComponent(accdol, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 519, GroupLayout.PREFERRED_SIZE)
+																.addComponent(scrollPane, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 519, GroupLayout.PREFERRED_SIZE))
+															.addGroup(groupLayout.createSequentialGroup()
+																.addComponent(desmak, GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)
+																.addPreferredGap(ComponentPlacement.RELATED)))
+														.addGroup(groupLayout.createSequentialGroup()
+															.addComponent(desdol, GroupLayout.PREFERRED_SIZE, 519, GroupLayout.PREFERRED_SIZE)
+															.addPreferredGap(ComponentPlacement.RELATED)))
 													.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 														.addGroup(groupLayout.createSequentialGroup()
 															.addPreferredGap(ComponentPlacement.RELATED)
@@ -242,34 +269,28 @@ public class ventana_principal2 extends JFrame {
 														.addGroup(groupLayout.createSequentialGroup()
 															.addGap(40)
 															.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-																.addComponent(checkBox_1, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
-																.addComponent(checkBox_2, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
-																.addComponent(checkBox_3, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
-																.addComponent(checkBox_4, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
-																.addComponent(checkBox_16, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
-																.addComponent(chckbxNewCheckBox)
-																.addComponent(checkBox, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
-																.addComponent(checkBox_15, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
-																.addComponent(checkBox_14, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
+																.addComponent(cnm, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+																.addComponent(cnd, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+																.addComponent(cam, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+																.addComponent(cad, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+																.addComponent(cop, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+																.addComponent(cwm)
+																.addComponent(cwd, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+																.addComponent(cdm, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+																.addComponent(cdd, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
 															.addGap(36)
 															.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-																.addComponent(checkBox_21, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
-																.addComponent(checkBox_22, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
-																.addComponent(checkBox_5, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
-																.addComponent(checkBox_20, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
-																.addComponent(checkBox_19, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
-																.addComponent(checkBox_18, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
-																.addComponent(checkBox_17, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
-																.addComponent(checkBox_6, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
-																.addComponent(checkBox_7, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))))
-													.addPreferredGap(ComponentPlacement.RELATED, 116, Short.MAX_VALUE))))
-										.addComponent(lblEnlacesALas)
-										.addGroup(groupLayout.createSequentialGroup()
-											.addGap(3)
-											.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
-												.addComponent(textField_7, GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)
-												.addComponent(textField_8, GroupLayout.PREFERRED_SIZE, 519, GroupLayout.PREFERRED_SIZE))
-											.addGap(159))))
+																.addComponent(cddsn, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+																.addComponent(cdmsn, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+																.addComponent(cmdsn, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+																.addComponent(cmmsn, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+																.addComponent(copsn, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+																.addComponent(cnmsn, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+																.addComponent(cndsn, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+																.addComponent(camsn, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+																.addComponent(cadsn, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)))))))
+										.addComponent(lblEnlacesALas))
+									.addPreferredGap(ComponentPlacement.RELATED, 121, Short.MAX_VALUE))
 								.addComponent(lblProductoSulto, GroupLayout.PREFERRED_SIZE, 106, GroupLayout.PREFERRED_SIZE)))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(43)
@@ -299,64 +320,50 @@ public class ventana_principal2 extends JFrame {
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(checkBox_22, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+									.addComponent(cmmsn, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
 									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(checkBox_21, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+									.addComponent(cmdsn, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
 									.addGap(7)
-									.addComponent(checkBox_20, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+									.addComponent(cnmsn, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
 									.addGap(5)
-									.addComponent(checkBox_19, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+									.addComponent(cndsn, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
 									.addGap(6)
-									.addComponent(checkBox_18, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+									.addComponent(camsn, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
 									.addGap(6)
-									.addComponent(checkBox_17, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
+									.addComponent(cadsn, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
 								.addGroup(groupLayout.createSequentialGroup()
 									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 										.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-											.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+											.addComponent(maqmak, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 											.addComponent(U_makita, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE))
-										.addComponent(chckbxNewCheckBox))
+										.addComponent(cwm))
 									.addPreferredGap(ComponentPlacement.RELATED)
 									.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-										.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-										.addComponent(checkBox, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
+										.addComponent(maqdolmar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(cwd, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
 									.addPreferredGap(ComponentPlacement.RELATED)
 									.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-										.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-										.addComponent(checkBox_1, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
+										.addComponent(novmak, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(cnm, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
 									.addPreferredGap(ComponentPlacement.RELATED)
 									.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-										.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-										.addComponent(checkBox_2, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
+										.addComponent(novdol, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(cnd, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
 									.addGap(6)
 									.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-										.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-										.addComponent(checkBox_3, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
+										.addComponent(accmak, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(cam, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
 									.addGap(6)
 									.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-										.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-										.addComponent(checkBox_4, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))))
-							.addPreferredGap(ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+										.addComponent(accdol, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(cad, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))))
+							.addPreferredGap(ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(checkBox_16, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
-								.addComponent(checkBox_5, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+								.addComponent(cop, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+								.addComponent(copsn, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
 								.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE))
-							.addGap(36)
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addGroup(groupLayout.createSequentialGroup()
-									.addGap(1)
-									.addComponent(textField_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-									.addGap(6)
-									.addComponent(textField_8, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(checkBox_6, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
-									.addGap(6)
-									.addComponent(checkBox_7, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
-								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(checkBox_15, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
-									.addGap(5)
-									.addComponent(checkBox_14, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))))
-						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(84))
+						.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
 							.addGap(22)
 							.addComponent(lblWebDolmar, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
 							.addGap(7)
@@ -367,12 +374,27 @@ public class ventana_principal2 extends JFrame {
 							.addComponent(lblAccesorioMak, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
 							.addGap(7)
 							.addComponent(lblAccesorioDolmar, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+							.addPreferredGap(ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
 							.addComponent(lblProductoSulto, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
 							.addGap(93)
-							.addComponent(lblDespiecesMakita, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
-							.addGap(6)
-							.addComponent(lblDespiecesDolmar, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+										.addComponent(lblDespiecesMakita, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
+										.addComponent(desmak, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+									.addGap(6)
+									.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+										.addComponent(lblDespiecesDolmar, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
+										.addComponent(desdol, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+								.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
+									.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+										.addComponent(cdmsn, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+										.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+										.addComponent(cddsn, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
+									.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+										.addComponent(cdm, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+										.addPreferredGap(ComponentPlacement.RELATED)
+										.addComponent(cdd, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))))
 							.addGap(21)))
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
@@ -388,8 +410,57 @@ public class ventana_principal2 extends JFrame {
 					.addContainerGap())
 		);
 		
-		JTextArea textArea = new JTextArea();
-		scrollPane.setViewportView(textArea);
+		JTextArea productossueltos = new JTextArea();
+		productossueltos.setText(ini.getProperty("PRODUCTOS_SUELTOS"));
+		scrollPane.setViewportView(productossueltos);
 		getContentPane().setLayout(groupLayout);
 	}
+	
+	public static Properties saveproperties(){
+		
+		
+		
+		
+		JCheckBox cwm = new JCheckBox("");
+		cwm.setSelected((ini.getProperty("CWM").contains("1")));
+		JCheckBox cwd = new JCheckBox("");
+		cwd.setSelected((ini.getProperty("CWD").contains("1")));
+		JCheckBox cnm = new JCheckBox("");
+		cnm.setSelected((ini.getProperty("CNM").contains("1")));
+		JCheckBox cnd = new JCheckBox("");
+		cnd.setSelected((ini.getProperty("CND").contains("1")));
+		JCheckBox cam = new JCheckBox("");
+		cam.setSelected((ini.getProperty("CAM").contains("1")));
+		JCheckBox cad = new JCheckBox("");
+		cad.setSelected((ini.getProperty("CAD").contains("1")));
+		JCheckBox copsn = new JCheckBox("");
+		copsn.setSelected((ini.getProperty("COPSSN").contains("1")));
+		JCheckBox cdmsn = new JCheckBox("");
+		cdmsn.setSelected((ini.getProperty("CDMSN").contains("1")));
+		JCheckBox cddsn = new JCheckBox("");
+		cddsn.setSelected((ini.getProperty("CDDSN").contains("1")));
+		JCheckBox cdd = new JCheckBox("");
+		cdd.setSelected((ini.getProperty("CDD").contains("1")));
+		JCheckBox cdm = new JCheckBox("");
+		cdm.setSelected((ini.getProperty("CDM").contains("1")));
+		JCheckBox cop = new JCheckBox("");;
+		cop.setSelected((ini.getProperty("COPS").contains("1")));
+		JCheckBox cadsn = new JCheckBox("");
+		cadsn.setSelected((ini.getProperty("CADSN").contains("1")));
+		JCheckBox camsn = new JCheckBox("");
+		camsn.setSelected((ini.getProperty("CAMSN").contains("1")));
+		JCheckBox cndsn = new JCheckBox("");
+		cndsn.setSelected((ini.getProperty("CNDSN").contains("1")));
+		JCheckBox cnmsn = new JCheckBox("");
+		cnmsn.setSelected((ini.getProperty("CNMSN").contains("1")));
+		JCheckBox cmdsn = new JCheckBox("");
+		cmdsn.setSelected((ini.getProperty("CMDSN").contains("1")));
+		JCheckBox cmmsn = new JCheckBox("");
+		cmmsn.setSelected((ini.getProperty("CMMSN").contains("1")));
+		
+		
+		return properties;
+	}
+	
+	
 }

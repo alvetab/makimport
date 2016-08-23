@@ -9,29 +9,31 @@ import javax.persistence.Query;
 
 import org.hibernate.annotations.Where;
 
+import DAO.DespiecepormaquinaDAO;
 import DAO.UrlsmaqmakDAO;
+import entities.Despiecepormaquina;
 import entities.Urlsmaqmak;
 
 
-public class UrlsmaqmakJpaDAO implements UrlsmaqmakDAO {
+public class DespiecepormaquinaJpaDAO implements DespiecepormaquinaDAO {
 	private EntityManager em;
 		
-	public UrlsmaqmakJpaDAO() {
+	public DespiecepormaquinaJpaDAO() {
 	em = PersistenceManager.INSTANCE.getEntityManager();
 	}
 	
 	
 	@Override
-	public List<Urlsmaqmak> listarTodos() {
-	Query q = em.createQuery("select a from Urlsmaqmak a");
-	List<Urlsmaqmak> listado =  q.getResultList();
+	public List<Despiecepormaquina> listarTodos() {
+	Query q = em.createQuery("select a from Despiecepormaquina a");
+	List<Despiecepormaquina> listado =  q.getResultList();
 		return listado;
 	}
 
 	@Override
-	public void crear(Urlsmaqmak urlsmaqmak) {
+	public void crear(Despiecepormaquina despiecepormaquina) {
 		em.getTransaction().begin();
-		em.persist(urlsmaqmak);
+		em.persist(despiecepormaquina);
 		em.getTransaction().commit();
 		em.close();
 		PersistenceManager.INSTANCE.close();
@@ -45,18 +47,18 @@ public class UrlsmaqmakJpaDAO implements UrlsmaqmakDAO {
 	}
 	
 	@Override
-	public String geturl(int i) {
-		Urlsmaqmak urlsmaqmak = em.find(Urlsmaqmak.class,i);
-		String url = urlsmaqmak.getUrl();
+	public String getStringPorId(int i) {
+		Despiecepormaquina despiecepormaquina = em.find(Despiecepormaquina.class,i);
+		String url = despiecepormaquina.toString();
 		return url;
 	}
 
 
-	public void crear(String string, String string2, int i, boolean b, boolean c) throws SQLException{
+	public void crear(String modelo, String posicion, String codigopieza, String descripcion) throws SQLException{
 		try {
-		Urlsmaqmak urlsmaqmak = new Urlsmaqmak(string,string2,i,b,c);
+		Despiecepormaquina despiecepormaquina = new Despiecepormaquina(modelo,posicion,codigopieza,descripcion);
 		em.getTransaction().begin();
-		em.persist(urlsmaqmak);
+		em.persist(despiecepormaquina);
 		em.getTransaction().commit();
 		em.close();
 		}

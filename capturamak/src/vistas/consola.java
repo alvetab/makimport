@@ -1,16 +1,42 @@
 package vistas;
-import javax.swing.*;
 
-import capturamak.TextAreaOutputStream;
-import test.Capturarmakita;
-import test.Provafestool;
 
-import java.awt.*;
-import java.awt.event.*;
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
+
 
 public class consola{
-    public static void main( String [] args ) throws InterruptedException  {
-  new Capturarmakita();
-    }
+	public static void main(String[] args) {
+			ventana_principal2 frame = new ventana_principal2();
+		
+			
+			
+			frame.setVisible(true);
+		}
+	
+	
+	public static Properties getIni(){
+	    Properties ini = new Properties();
+	    InputStream is = null;
+	     
+	    try {
+	      is=new FileInputStream("Ini.properties");
+	      ini.load(is);
+	       } catch(IOException ioe) {}
+	    return ini;
+	}
+	
+	public static Properties saveIni(){
+	    Properties ini = new Properties();
+	    InputStream is = null;
+	     
+	    try {
+	      is=new FileInputStream("Ini.properties");
+	      ini.load(is);
+	       } catch(IOException ioe) {}
+	    return ini;
+	}
 }

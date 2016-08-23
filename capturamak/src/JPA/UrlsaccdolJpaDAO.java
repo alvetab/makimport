@@ -1,16 +1,11 @@
 package JPA;
 
 import java.sql.SQLException;
-import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-
-import org.hibernate.annotations.Where;
-
 import DAO.UrlsaccdolDAO;
-import model.Urlsaccdol;
+import entities.Urlsaccdol;
 
 
 public class UrlsaccdolJpaDAO implements UrlsaccdolDAO {

@@ -12,9 +12,8 @@ import javax.persistence.NamedQuery;
 /**
  * The persistent class for the accesorioscompleto database table.
  * 
- */
-@Entity
-@NamedQuery(name="Accesorioscompleto.findAll", query="SELECT a FROM Accesorioscompleto a")
+*/
+
 public class Accesorioscompleto implements Serializable {
 	private static final long serialVersionUID = 1L;
 

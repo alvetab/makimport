@@ -1,16 +1,13 @@
 package JPA;
 
 import java.sql.SQLException;
-import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-
-import org.hibernate.annotations.Where;
-
 import DAO.UrlsaccmakDAO;
-import model.Urlsaccmak;
+import entities.Urlsaccmak;
+
+
 
 
 public class UrlsaccmakJpaDAO implements UrlsaccmakDAO {

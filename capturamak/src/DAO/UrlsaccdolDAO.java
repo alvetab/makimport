@@ -1,7 +1,7 @@
 package DAO;
 import java.util.List;
 
-import model.Urlsaccdol;;
+import entities.Urlsaccdol;;
 
 public interface UrlsaccdolDAO {
 	List<Urlsaccdol> listarTodos();

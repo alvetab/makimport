@@ -1,20 +1,19 @@
-package model;
+package entities;
 
 import java.io.Serializable;
-import java.util.List;
-
-import javax.persistence.*;
-
-import JPA.PersistenceManager;
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
 /**
  * The persistent class for the urlsaccmak database table.
  * 
  */
+
 @Entity
-@NamedQuery(name="Urlsaccmak.findAll", query="SELECT u FROM Urlsaccmak u")
-public class Urlsaccmak implements Serializable {
+@NamedQuery(name = "Urlsparadespieces.findAll", query = "SELECT u FROM Urlsparadespieces u")
+public class Urlsparadespieces implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -23,26 +22,23 @@ public class Urlsaccmak implements Serializable {
 	private boolean activo;
 
 	private boolean capturado;
-	
-	@Column(unique=true, nullable=false)
-	private String modelo;
 
-	private int tipo;
+	@Column(unique = true, nullable = false)
+	private String modelo;
 
 	private String url;
 
-	public Urlsaccmak() {
+	public Urlsparadespieces() {
 		super();
 	}
-	public Urlsaccmak(String modelo,String url, int tipo, boolean capturado, boolean activo) {
+
+	public Urlsparadespieces(String modelo, String url, boolean capturado, boolean activo) {
 		setModelo(modelo);
 		setUrl(url);
-		setTipo(tipo);
 		setCapturado(capturado);
 		setActivo(activo);
 	}
-	
-	
+
 	public int getId() {
 		return this.id;
 	}
@@ -73,14 +69,6 @@ public class Urlsaccmak implements Serializable {
 
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
-	}
-
-	public int getTipo() {
-		return this.tipo;
-	}
-
-	public void setTipo(int tipo) {
-		this.tipo = tipo;
 	}
 
 	public String getUrl() {

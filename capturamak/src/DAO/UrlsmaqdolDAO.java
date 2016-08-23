@@ -1,8 +1,8 @@
 package DAO;
 import java.util.List;
 
-import model.Urlsmaqdol;
-import model.Urlsmaqmak;;
+import entities.Urlsmaqdol;
+import entities.Urlsmaqmak;;
 
 public interface UrlsmaqdolDAO {
 	List<Urlsmaqdol> listarTodos();

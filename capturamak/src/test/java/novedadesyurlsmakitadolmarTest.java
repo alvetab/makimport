@@ -7,11 +7,11 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
+import JPA.UrlsdocsdolJpaDAO;
+import JPA.UrlsdocsmakJpaDAO;
 import JPA.UrlsmaqdolJpaDAO;
 import JPA.UrlsmaqmakJpaDAO;
 import capturamak.listasurls;
-import model.Urlsmaqmak;
-import oracle.jrockit.jfr.events.Bits;
 
 public class novedadesyurlsmakitadolmarTest {
 	String webmakitanovedades = new String("http://www.makita.es/novedades.html");
@@ -73,7 +73,7 @@ public class novedadesyurlsmakitadolmarTest {
 			
 			assertEquals("1", webdolmarparts);
 		}
-	@Test
+	//@Test
 		public void compruebaQuegrabalaurlmaquinasdol() throws Exception{
 			ArrayList<String> listadourls = listasurls.capturaurls(webdolmaraccesorios);
 			//UrlsmaqmakJpaDAO emurls = new UrlsmaqmakJpaDAO();
@@ -88,7 +88,7 @@ public class novedadesyurlsmakitadolmarTest {
 			assertEquals(webdolmarparts, webdolmarparts);
 			}
 	
-	@Test
+	//@Test
 	public void compruebarecuperaurlmaquinasdolmar() throws Exception{
 		int Id = 21;
 			UrlsmaqdolJpaDAO emurls = new UrlsmaqdolJpaDAO();
@@ -100,4 +100,18 @@ public class novedadesyurlsmakitadolmarTest {
 			assertEquals("1", webdolmarparts);
 		}
 	
+	@Test
+	public void compruebaQuegrabalaurlaccdol() throws Exception{
+		ArrayList<String> listadourls = listasurls.capturaurls(webdolmarnovedades);
+		//UrlsmaqmakJpaDAO emurls = new UrlsmaqmakJpaDAO();
+		String modelo = new String();
+		int valuemodelo = 1000221;
+		for (String urls : listadourls){
+			UrlsdocsdolJpaDAO emurls = new UrlsdocsdolJpaDAO();
+			//System.out.println(urls);
+			emurls.crear(modelo.valueOf(valuemodelo),urls,1,true,true);	
+			valuemodelo++;
+			}
+		assertEquals(webdolmarparts, webdolmarparts);
+		}
 }

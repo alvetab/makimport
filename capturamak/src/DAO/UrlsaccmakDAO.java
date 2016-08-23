@@ -1,7 +1,7 @@
 package DAO;
 import java.util.List;
 
-import model.Urlsaccmak;;
+import entities.Urlsaccmak;;
 
 public interface UrlsaccmakDAO {
 	List<Urlsaccmak> listarTodos();
