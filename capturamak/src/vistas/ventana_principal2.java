@@ -433,7 +433,7 @@ public class ventana_principal2 extends JFrame {
 		ini.setProperty("DESPIECES_MAKITA",desmak.getText());
 		ini.setProperty("DESPIECES_DOLMAR",desdol.getText());
 		
-		System.out.println((cwm.isSelected() ? 1:0));
+		System.out.println(valueOf(cwm.isSelected() ? 1:0));
 		ini.setProperty("CWM",cwm.getText());
 		ini.setProperty("CWD",cwd.getText());
 		ini.setProperty("CNM",cnm.getText());
