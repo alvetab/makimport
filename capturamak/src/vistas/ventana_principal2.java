@@ -2,6 +2,7 @@ package vistas;
 
 
 import java.awt.EventQueue;
+import java.awt.Panel;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -12,6 +13,8 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 
 import org.omg.CORBA.PUBLIC_MEMBER;
 
+import com.mysql.fabric.xmlrpc.base.Array;
+import com.sun.glass.ui.View;
 import com.sun.xml.internal.fastinfoset.util.ValueArray;
 
 import capturamak.TextAreaOutputStream;
@@ -48,6 +51,9 @@ public class ventana_principal2 extends JFrame {
 	private JLabel lblEnlacesALas;
 	private JTextField desmak;
 	private JTextField desdol;
+	private JTextArea productossueltos;
+	private JCheckBox cwm,cwd,cnm,cnd,cam,cad,cops,copssn,cdmsn,cddsn,cdd,cdm,camsn,cadsn,cnmsn,cndsn,cmdsn,cmmsn;
+	private Properties ini;
 	/**
 	 * @wbp.nonvisual location=70,-1
 	 */
@@ -73,7 +79,7 @@ public class ventana_principal2 extends JFrame {
 	 * Create the frame.
 	 */
 	public ventana_principal2() {
-		Properties ini = new Properties();
+		ini = new Properties();
 		ini = consola.getIni();
 		
 		JPanel panel = new JPanel();
@@ -131,41 +137,41 @@ public class ventana_principal2 extends JFrame {
 		desdol.setColumns(10);
 		desdol.setText(ini.getProperty("DESPIECES_DOLMAR"));
 		
-		JCheckBox cwm = new JCheckBox("");
+		cwm = new JCheckBox("");
 		cwm.setSelected((ini.getProperty("CWM").contains("1")));
-		JCheckBox cwd = new JCheckBox("");
+		cwd = new JCheckBox("");
 		cwd.setSelected((ini.getProperty("CWD").contains("1")));
-		JCheckBox cnm = new JCheckBox("");
+		cnm = new JCheckBox("");
 		cnm.setSelected((ini.getProperty("CNM").contains("1")));
-		JCheckBox cnd = new JCheckBox("");
+		cnd = new JCheckBox("");
 		cnd.setSelected((ini.getProperty("CND").contains("1")));
-		JCheckBox cam = new JCheckBox("");
+		cam = new JCheckBox("");
 		cam.setSelected((ini.getProperty("CAM").contains("1")));
-		JCheckBox cad = new JCheckBox("");
+		cad = new JCheckBox("");
 		cad.setSelected((ini.getProperty("CAD").contains("1")));
-		JCheckBox copsn = new JCheckBox("");
-		copsn.setSelected((ini.getProperty("COPSSN").contains("1")));
-		JCheckBox cdmsn = new JCheckBox("");
+		copssn = new JCheckBox("");
+		copssn.setSelected((ini.getProperty("COPSSN").contains("1")));
+		cdmsn = new JCheckBox("");
 		cdmsn.setSelected((ini.getProperty("CDMSN").contains("1")));
-		JCheckBox cddsn = new JCheckBox("");
+		cddsn = new JCheckBox("");
 		cddsn.setSelected((ini.getProperty("CDDSN").contains("1")));
-		JCheckBox cdd = new JCheckBox("");
+		cdd = new JCheckBox("");
 		cdd.setSelected((ini.getProperty("CDD").contains("1")));
-		JCheckBox cdm = new JCheckBox("");
+		cdm = new JCheckBox("");
 		cdm.setSelected((ini.getProperty("CDM").contains("1")));
-		JCheckBox cop = new JCheckBox("");;
-		cop.setSelected((ini.getProperty("COPS").contains("1")));
-		JCheckBox cadsn = new JCheckBox("");
+		cops = new JCheckBox("");;
+		cops.setSelected((ini.getProperty("COPS").contains("1")));
+		cadsn = new JCheckBox("");
 		cadsn.setSelected((ini.getProperty("CADSN").contains("1")));
-		JCheckBox camsn = new JCheckBox("");
+		camsn = new JCheckBox("");
 		camsn.setSelected((ini.getProperty("CAMSN").contains("1")));
-		JCheckBox cndsn = new JCheckBox("");
+		cndsn = new JCheckBox("");
 		cndsn.setSelected((ini.getProperty("CNDSN").contains("1")));
-		JCheckBox cnmsn = new JCheckBox("");
+		cnmsn = new JCheckBox("");
 		cnmsn.setSelected((ini.getProperty("CNMSN").contains("1")));
-		JCheckBox cmdsn = new JCheckBox("");
+		cmdsn = new JCheckBox("");
 		cmdsn.setSelected((ini.getProperty("CMDSN").contains("1")));
-		JCheckBox cmmsn = new JCheckBox("");
+		cmmsn = new JCheckBox("");
 		cmmsn.setSelected((ini.getProperty("CMMSN").contains("1")));
 		
 		
@@ -180,8 +186,9 @@ public class ventana_principal2 extends JFrame {
 		btnCapturar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				System.out.println(maqmak.getText());
-				maqdolmar.getText();
+				System.out.println("DATOS GUARDADOS");
+				getnowproperties();
+				consola.saveini(ini);
 				//new Capturarmakita();
 				
 				
@@ -273,7 +280,7 @@ public class ventana_principal2 extends JFrame {
 																.addComponent(cnd, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
 																.addComponent(cam, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
 																.addComponent(cad, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
-																.addComponent(cop, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+																.addComponent(cops, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
 																.addComponent(cwm)
 																.addComponent(cwd, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
 																.addComponent(cdm, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
@@ -284,7 +291,7 @@ public class ventana_principal2 extends JFrame {
 																.addComponent(cdmsn, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
 																.addComponent(cmdsn, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
 																.addComponent(cmmsn, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
-																.addComponent(copsn, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+																.addComponent(copssn, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
 																.addComponent(cnmsn, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
 																.addComponent(cndsn, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
 																.addComponent(camsn, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
@@ -359,8 +366,8 @@ public class ventana_principal2 extends JFrame {
 										.addComponent(cad, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))))
 							.addPreferredGap(ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(cop, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
-								.addComponent(copsn, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+								.addComponent(cops, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+								.addComponent(copssn, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
 								.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE))
 							.addGap(84))
 						.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
@@ -410,56 +417,42 @@ public class ventana_principal2 extends JFrame {
 					.addContainerGap())
 		);
 		
-		JTextArea productossueltos = new JTextArea();
+		productossueltos = new JTextArea();
 		productossueltos.setText(ini.getProperty("PRODUCTOS_SUELTOS"));
 		scrollPane.setViewportView(productossueltos);
 		getContentPane().setLayout(groupLayout);
 	}
-	
-	public static Properties saveproperties(){
+		public void getnowproperties(){
+		ini.setProperty("WEB_MAKITA",maqmak.getText());
+		ini.setProperty("WEB_DOLMAR",maqdolmar.getText());
+		ini.setProperty("NOVEDAD_MAKITA",novmak.getText());
+		ini.setProperty("NOVEDAD_DOLMAR",novdol.getText());
+		ini.setProperty("ACCESORIO_MAKITA",accmak.getText());
+		ini.setProperty("ACCESORIO_DOLMAR",accdol.getText());
+		ini.setProperty("PRODUCTOS_SUELTOS",productossueltos.getText());
+		ini.setProperty("DESPIECES_MAKITA",desmak.getText());
+		ini.setProperty("DESPIECES_DOLMAR",desdol.getText());
 		
+		System.out.println((cwm.isSelected() ? 1:0));
+		ini.setProperty("CWM",cwm.getText());
+		ini.setProperty("CWD",cwd.getText());
+		ini.setProperty("CNM",cnm.getText());
+		ini.setProperty("CND",cnd.getText());
+		ini.setProperty("CAM",cam.getText());
+		ini.setProperty("CAD",cad.getText());
+		ini.setProperty("COPS",cops.getText());
+		ini.setProperty("CDD",cdd.getText());
 		
-		
-		
-		JCheckBox cwm = new JCheckBox("");
-		cwm.setSelected((ini.getProperty("CWM").contains("1")));
-		JCheckBox cwd = new JCheckBox("");
-		cwd.setSelected((ini.getProperty("CWD").contains("1")));
-		JCheckBox cnm = new JCheckBox("");
-		cnm.setSelected((ini.getProperty("CNM").contains("1")));
-		JCheckBox cnd = new JCheckBox("");
-		cnd.setSelected((ini.getProperty("CND").contains("1")));
-		JCheckBox cam = new JCheckBox("");
-		cam.setSelected((ini.getProperty("CAM").contains("1")));
-		JCheckBox cad = new JCheckBox("");
-		cad.setSelected((ini.getProperty("CAD").contains("1")));
-		JCheckBox copsn = new JCheckBox("");
-		copsn.setSelected((ini.getProperty("COPSSN").contains("1")));
-		JCheckBox cdmsn = new JCheckBox("");
-		cdmsn.setSelected((ini.getProperty("CDMSN").contains("1")));
-		JCheckBox cddsn = new JCheckBox("");
-		cddsn.setSelected((ini.getProperty("CDDSN").contains("1")));
-		JCheckBox cdd = new JCheckBox("");
-		cdd.setSelected((ini.getProperty("CDD").contains("1")));
-		JCheckBox cdm = new JCheckBox("");
-		cdm.setSelected((ini.getProperty("CDM").contains("1")));
-		JCheckBox cop = new JCheckBox("");;
-		cop.setSelected((ini.getProperty("COPS").contains("1")));
-		JCheckBox cadsn = new JCheckBox("");
-		cadsn.setSelected((ini.getProperty("CADSN").contains("1")));
-		JCheckBox camsn = new JCheckBox("");
-		camsn.setSelected((ini.getProperty("CAMSN").contains("1")));
-		JCheckBox cndsn = new JCheckBox("");
-		cndsn.setSelected((ini.getProperty("CNDSN").contains("1")));
-		JCheckBox cnmsn = new JCheckBox("");
-		cnmsn.setSelected((ini.getProperty("CNMSN").contains("1")));
-		JCheckBox cmdsn = new JCheckBox("");
-		cmdsn.setSelected((ini.getProperty("CMDSN").contains("1")));
-		JCheckBox cmmsn = new JCheckBox("");
-		cmmsn.setSelected((ini.getProperty("CMMSN").contains("1")));
-		
-		
-		return properties;
+		ini.setProperty("CMMSN",cmmsn.getText());
+		ini.setProperty("CMDSN",cmdsn.getText());
+		ini.setProperty("CNMSN",cnmsn.getText());
+		ini.setProperty("CNDSN",cndsn.getText());
+		ini.setProperty("CAMSN",camsn.getText());
+		ini.setProperty("CADSN",cadsn.getText());
+		ini.setProperty("COPSSN",copssn.getText());
+		ini.setProperty("CDMSN",cdmsn.getText());
+		ini.setProperty("CDDSN",cddsn.getText());
+		//return ini;
 	}
 	
 	
