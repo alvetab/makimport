@@ -182,25 +182,26 @@ public class ventana_principal2 extends JFrame {
 		
 		JToolBar toolBar = new JToolBar();
 		
-		JButton btnCapturar = new JButton("CAPTURAR");
-		btnCapturar.addMouseListener(new MouseAdapter() {
+		JButton btnGuardar = new JButton("Guardar config");
+		btnGuardar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				System.out.println("DATOS GUARDADOS");
 				getnowproperties();
 				consola.saveini(ini);
+				
 				//new Capturarmakita();
 				
 				
 			}
 		});
-		btnCapturar.addActionListener(new ActionListener() {
+		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 							}
 		});
 		
-		JButton btnCancelar = new JButton("CANCELAR");
+		JButton btnCancelar = new JButton("Salir");
 		btnCancelar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -210,13 +211,13 @@ public class ventana_principal2 extends JFrame {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		
-		JTextArea consola = new JTextArea();
+		JTextArea consolatxt = new JTextArea();
 		
-		TextAreaOutputStream taos = new TextAreaOutputStream( consola, 60 );
+		TextAreaOutputStream taos = new TextAreaOutputStream( consolatxt, 60 );
         PrintStream ps = new PrintStream( taos );
         System.setOut( ps );
         System.setErr( ps );
-        JScrollPane scroll = new JScrollPane(consola);
+        JScrollPane scroll = new JScrollPane(consolatxt);
 		
 		
 		
@@ -224,6 +225,26 @@ public class ventana_principal2 extends JFrame {
 		
 		
 		JLabel lblResultado = new JLabel("RESULTADO");
+		
+		JButton btnCapturar = new JButton("Capturar");
+		btnCapturar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.out.println("Capturando");
+				getnowproperties();
+				consola.organizarcapturas(ini);
+				
+			}
+		});
+		btnCapturar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		
+		
+		
+		
+		
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -305,10 +326,14 @@ public class ventana_principal2 extends JFrame {
 								.addComponent(lblResultado, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE)
 								.addGroup(groupLayout.createSequentialGroup()
 									.addComponent(scroll, GroupLayout.PREFERRED_SIZE, 600, GroupLayout.PREFERRED_SIZE)
-									.addGap(18)
-									.addComponent(btnCapturar)
-									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(btnCancelar)))))
+									.addGap(38)
+									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+										.addComponent(btnGuardar)
+										.addGroup(groupLayout.createSequentialGroup()
+											.addComponent(btnCapturar)
+											.addGap(2)
+											.addComponent(btnCancelar, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE)))))
+							.addGap(98)))
 					.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
@@ -364,13 +389,13 @@ public class ventana_principal2 extends JFrame {
 									.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 										.addComponent(accdol, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 										.addComponent(cad, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))))
-							.addPreferredGap(ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+							.addPreferredGap(ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 								.addComponent(cops, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
 								.addComponent(copssn, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
 								.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE))
-							.addGap(84))
-						.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+							.addGap(77))
+						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(22)
 							.addComponent(lblWebDolmar, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
 							.addGap(7)
@@ -381,7 +406,7 @@ public class ventana_principal2 extends JFrame {
 							.addComponent(lblAccesorioMak, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
 							.addGap(7)
 							.addComponent(lblAccesorioDolmar, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+							.addPreferredGap(ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
 							.addComponent(lblProductoSulto, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
 							.addGap(93)
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
@@ -393,16 +418,18 @@ public class ventana_principal2 extends JFrame {
 									.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 										.addComponent(lblDespiecesDolmar, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
 										.addComponent(desdol, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-								.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
-									.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+									.addGroup(groupLayout.createSequentialGroup()
 										.addComponent(cdmsn, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
 										.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 										.addComponent(cddsn, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
-									.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+									.addGroup(groupLayout.createSequentialGroup()
 										.addComponent(cdm, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
 										.addPreferredGap(ComponentPlacement.RELATED)
-										.addComponent(cdd, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))))
-							.addGap(21)))
+										.addComponent(cdd, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))))))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(btnGuardar)
+					.addGap(15)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(17)
@@ -412,8 +439,8 @@ public class ventana_principal2 extends JFrame {
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(54)
 							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(btnCapturar)
-								.addComponent(btnCancelar))))
+								.addComponent(btnCancelar)
+								.addComponent(btnCapturar))))
 					.addContainerGap())
 		);
 		
@@ -453,6 +480,4 @@ public class ventana_principal2 extends JFrame {
 		ini.setProperty("CDMSN","" + (cdmsn.isSelected() ? 1:0));
 		ini.setProperty("CDDSN","" + (cddsn.isSelected() ? 1:0));
 		}
-	
-	
 }
