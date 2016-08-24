@@ -422,7 +422,7 @@ public class ventana_principal2 extends JFrame {
 		scrollPane.setViewportView(productossueltos);
 		getContentPane().setLayout(groupLayout);
 	}
-		public void getnowproperties(){
+		public void getnowproperties(){ //monta ini properties para almacenar 
 		ini.setProperty("WEB_MAKITA",maqmak.getText());
 		ini.setProperty("WEB_DOLMAR",maqdolmar.getText());
 		ini.setProperty("NOVEDAD_MAKITA",novmak.getText());
@@ -433,27 +433,26 @@ public class ventana_principal2 extends JFrame {
 		ini.setProperty("DESPIECES_MAKITA",desmak.getText());
 		ini.setProperty("DESPIECES_DOLMAR",desdol.getText());
 		
-		System.out.println(valueOf(cwm.isSelected() ? 1:0));
-		ini.setProperty("CWM",cwm.getText());
-		ini.setProperty("CWD",cwd.getText());
-		ini.setProperty("CNM",cnm.getText());
-		ini.setProperty("CND",cnd.getText());
-		ini.setProperty("CAM",cam.getText());
-		ini.setProperty("CAD",cad.getText());
-		ini.setProperty("COPS",cops.getText());
-		ini.setProperty("CDD",cdd.getText());
+		ini.setProperty("CWM","" + (cwm.isSelected() ? 1:0));
+		ini.setProperty("CWD","" + (cwd.isSelected() ? 1:0));
+		ini.setProperty("CNM","" + (cwd.isSelected() ? 1:0));
+		ini.setProperty("CND","" + (cnd.isSelected() ? 1:0));
+		ini.setProperty("CAM","" + (cam.isSelected() ? 1:0));
+		ini.setProperty("CAD","" + (cad.isSelected() ? 1:0));
+		ini.setProperty("COPS","" + (cops.isSelected() ? 1:0));
+		ini.setProperty("CDM","" + (cdm.isSelected() ? 1:0));
+		ini.setProperty("CDD","" + (cdd.isSelected() ? 1:0));
 		
-		ini.setProperty("CMMSN",cmmsn.getText());
-		ini.setProperty("CMDSN",cmdsn.getText());
-		ini.setProperty("CNMSN",cnmsn.getText());
-		ini.setProperty("CNDSN",cndsn.getText());
-		ini.setProperty("CAMSN",camsn.getText());
-		ini.setProperty("CADSN",cadsn.getText());
-		ini.setProperty("COPSSN",copssn.getText());
-		ini.setProperty("CDMSN",cdmsn.getText());
-		ini.setProperty("CDDSN",cddsn.getText());
-		//return ini;
-	}
+		ini.setProperty("CMMSN","" + (cmmsn.isSelected() ? 1:0));
+		ini.setProperty("CMDSN","" + (cmdsn.isSelected() ? 1:0));
+		ini.setProperty("CNMSN","" + (cnmsn.isSelected() ? 1:0));
+		ini.setProperty("CNDSN","" + (cndsn.isSelected() ? 1:0));
+		ini.setProperty("CAMSN","" + (camsn.isSelected() ? 1:0));
+		ini.setProperty("CADSN","" + (cadsn.isSelected() ? 1:0));
+		ini.setProperty("COPSSN","" + (copssn.isSelected() ? 1:0));
+		ini.setProperty("CDMSN","" + (cdmsn.isSelected() ? 1:0));
+		ini.setProperty("CDDSN","" + (cddsn.isSelected() ? 1:0));
+		}
 	
 	
 }
