@@ -7,7 +7,7 @@
 		<class>entities.Urlsaccdol</class>
 		<class>entities.Urlsaccmak</class>
 		<class>entities.Urlsdocsmak</class>
-		<class>entities.Urlsdocsdol</class>
+		<class>entities.Urlscaptura</class>
 		<class>entities.Urlsparadespieces</class>
 		<class>entities.Despiecepormaquina</class>
 		

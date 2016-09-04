@@ -22,7 +22,7 @@
 	<classpathentry kind="lib" path="G:/electromecanica dominguez/javax.inject-1.jar"/>
 	<classpathentry kind="lib" path="G:/electromecanica dominguez/jboss-interceptors-api_1.1_spec-1.0.0.Beta1.jar"/>
 	<classpathentry kind="lib" path="G:/electromecanica dominguez/jboss-logging-3.3.0.Final.jar"/>
-	<classpathentry kind="lib" path="G:/electromecanica dominguez/jsoup-1.9.2.jar"/>
+	<classpathentry kind="lib" path="G:/electromecanica dominguez/jsoup-1.9.2.jar" sourcepath="C:/Users/Developer/.m2/repository/org/jsoup/jsoup/1.9.2/jsoup-1.9.2-sources.jar"/>
 	<classpathentry kind="lib" path="G:/electromecanica dominguez/jsr250-api-1.0.jar"/>
 	<classpathentry kind="lib" path="G:/electromecanica dominguez/mysql-connector-java-5.1.39-bin.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>

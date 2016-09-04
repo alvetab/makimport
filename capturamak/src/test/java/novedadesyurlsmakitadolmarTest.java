@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import JPA.UrlsdocsdolJpaDAO;
+import JPA.UrlscapturaJpaDAO;
 import JPA.UrlsdocsmakJpaDAO;
 import JPA.UrlsmaqdolJpaDAO;
 import JPA.UrlsmaqmakJpaDAO;
@@ -107,7 +107,7 @@ public class novedadesyurlsmakitadolmarTest {
 		String modelo = new String();
 		int valuemodelo = 1000221;
 		for (String urls : listadourls){
-			UrlsdocsdolJpaDAO emurls = new UrlsdocsdolJpaDAO();
+			UrlscapturaJpaDAO emurls = new UrlscapturaJpaDAO();
 			//System.out.println(urls);
 			emurls.crear(modelo.valueOf(valuemodelo),urls,1,true,true);	
 			valuemodelo++;

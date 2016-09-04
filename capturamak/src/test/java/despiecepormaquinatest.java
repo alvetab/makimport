@@ -10,7 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import JPA.DespiecepormaquinaJpaDAO;
-import JPA.UrlsdocsdolJpaDAO;
+import JPA.UrlscapturaJpaDAO;
 import JPA.UrlsmaqmakJpaDAO;
 import capturamak.ExcepcionIntervalo;
 import capturamak.capturahtml;
