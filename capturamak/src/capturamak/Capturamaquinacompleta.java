@@ -35,8 +35,10 @@ public class Capturamaquinacompleta {
 		capturaDespiecepormaquina();
 		capturaPrestaciones();
 		capturaDatostecnicos();
+		capturaEquipoyaccesorios();
 		capturaUrlfotos();
 		capturaSimboloslogos();
+		capturaManualydespiece();
 		
 	}
 	
@@ -105,23 +107,21 @@ public class Capturamaquinacompleta {
 		}
 		public void capturaDespiecepormaquina() {
 			Despiecepormaquina despieces= new Despiecepormaquina(html_capturado);
-			//despiecepormaquina=despieces.getTabladespiece();
+			despiecepormaquina=despieces.getTabladespiece();
 		}
-		public String getManualydespiece() {
-			return manualydespiece;
+		public void capturaManualydespiece() throws ExcepcionIntervalo {
+			Manualesydespiecesurls manudespi= new Manualesydespiecesurls(html_capturado);
+			manualydespiece=manudespi.toString();
 		}
-		public String getEquipoyaccesorios() {
-			return equipoyaccesorios;
+		public void capturaEquipoyaccesorios() throws ExcepcionIntervalo {
+			Equipoyacceso capequaccess= new Equipoyacceso(html_capturado);
+			equipoyaccesorios=capequaccess.toString();
 		}
 		public void capturaSimboloslogos() throws ExcepcionIntervalo {
 			Simboloslogos simboloscap= new Simboloslogos(html_capturado);
 			simboloslogos=simboloscap.toString();
 		}
 		
-		
-		public String getModelo() {
-			return this.modelo;
-		}
 		
 		
 		public void capturadocument(String url) throws ExcepcionIntervalo {

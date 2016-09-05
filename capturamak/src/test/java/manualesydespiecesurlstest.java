@@ -9,7 +9,7 @@ import org.junit.Test;
 import capturamak.ExcepcionIntervalo;
 import capturamak.capturahtml;
 import capturamak.Descripcion;
-import capturamak.manualesydespiecesurls;
+import capturamak.Manualesydespiecesurls;
 
 
 public class manualesydespiecesurlstest {
@@ -32,7 +32,7 @@ public class manualesydespiecesurlstest {
 	public void simbolosylogostest() throws ExcepcionIntervalo {
 	try {
 	 capturahtml html= new capturahtml(web1);	
-	 manualesydespiecesurls descripcion = new manualesydespiecesurls(html.getDatosCapturados());
+	 Manualesydespiecesurls descripcion = new Manualesydespiecesurls(html.getDatosCapturados());
 	 String[] actual = descripcion.geturlsmanualesdespi();
 	 
 	 for (int i=0;i<actual.length;i++){

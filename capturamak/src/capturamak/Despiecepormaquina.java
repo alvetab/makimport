@@ -31,7 +31,7 @@ public class Despiecepormaquina {
 							codigopieza.add(datosenbruto4.get(1).text());
 							descripcion.add(datosenbruto4.get(2).text());
 							}
-							else {System.out.println("No contiene despieces a extraer0");}
+							else {}
 							}
 					}
 		} 

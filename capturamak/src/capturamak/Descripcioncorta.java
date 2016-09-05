@@ -23,7 +23,8 @@ public class Descripcioncorta{
 			
 				for (Element descripcion : descripcioncapturada)
 					{		
-					this.descripcioncorta = (descripcion.text());
+					
+					this.descripcioncorta = (descripcion.text().substring(0,150));
 				}
 			}
 			else{				

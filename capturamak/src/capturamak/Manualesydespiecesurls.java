@@ -1,13 +1,15 @@
 package capturamak;
 
+import java.util.Arrays;
+
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
-public class manualesydespiecesurls {// captura url de las fotos para su
+public class Manualesydespiecesurls {// captura url de las fotos para su
 										// posterior descarga
 	String[] urlsmanualesydespieces;
 
-	public manualesydespiecesurls(Document html_capturado) throws ExcepcionIntervalo {
+	public Manualesydespiecesurls(Document html_capturado) throws ExcepcionIntervalo {
 		super();
 		Modelo modelo = new Modelo();
 		String nombremodelo = modelo.getmodelo(html_capturado);
@@ -41,4 +43,10 @@ public class manualesydespiecesurls {// captura url de las fotos para su
 	public String[] geturlsmanualesdespi() {
 		return this.urlsmanualesydespieces;
 	}
+
+	@Override
+	public String toString() {
+		return "manualesydespiecesurls [urlsmanualesydespieces=" + Arrays.toString(urlsmanualesydespieces) + "]";
+	}
+	
 }

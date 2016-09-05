@@ -67,6 +67,41 @@ public class Equipoyacceso {
 		return this.accesorios;
 	}
 	
+	@Override
+	public String toString() {
+		String stringdatos = "";
+		if (equipobasico.length>0){
+			stringdatos="<h1>Equipo básico</h1><table><tbody>";
+			for (int i = 0; i < equipobasico.length; i++) {
+				stringdatos=stringdatos+"<tr>";
+				stringdatos=stringdatos+"<td>";
+				stringdatos=stringdatos + equipobasico[i][0];
+				stringdatos=stringdatos+"</td><td>";
+				stringdatos=stringdatos + equipobasico[i][1];
+				stringdatos=stringdatos+"</td>";	
+				stringdatos=stringdatos+"</tr>";	
+			}
+			stringdatos=stringdatos+"</tbody></table>";
+		}
+		if (accesorios.length>0){
+			stringdatos=stringdatos+"<h1>Accesorios opcionales</h1><table><tbody>";
+			for (int i = 0; i < accesorios.length; i++) {
+				stringdatos=stringdatos+"<tr>";
+				stringdatos=stringdatos+"<td>";
+				stringdatos=stringdatos + accesorios[i][0];
+				stringdatos=stringdatos+"</td><td>";
+				stringdatos=stringdatos + accesorios[i][1];
+				stringdatos=stringdatos+"</td>";	
+				stringdatos=stringdatos+"</tr>";	
+			}
+			stringdatos=stringdatos+"</tbody></table>";
+		}
+		
+		else {
+			
+		}
+			return stringdatos;
+	}
 	
 	
 	public void setdescripcion(Document html_capturado) throws ExcepcionIntervalo {
