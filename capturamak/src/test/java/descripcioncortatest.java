@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import capturamak.ExcepcionIntervalo;
 import capturamak.capturahtml;
-import capturamak.descripcion;
+import capturamak.Descripcion;
 
 public class descripcioncortatest {
 	String web1= new String("http://www.makita.es/parts.html?model=1050DWD&filter=");
@@ -30,7 +30,7 @@ public class descripcioncortatest {
 	public void compruebadescripciontest() throws ExcepcionIntervalo {
 	try {
 	 capturahtml html= new capturahtml(web3);	
-	 descripcion descripcion = new descripcion(html.getDatosCapturados());
+	 Descripcion descripcion = new Descripcion(html.getDatosCapturados());
 	 String actual = descripcion.getdescripcion();
 	 System.out.println(actual); 
 	 assertEquals("1050DWD", actual); 

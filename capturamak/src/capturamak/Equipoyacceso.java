@@ -3,15 +3,15 @@ package capturamak;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
-public class equipoyacceso {
+public class Equipoyacceso {
 	private String[][] equipobasico, accesorios;
 
-	public equipoyacceso() {
+	public Equipoyacceso() {
 	}
 
-	public equipoyacceso(Document html_capturado) throws ExcepcionIntervalo {
+	public Equipoyacceso(Document html_capturado) throws ExcepcionIntervalo {
 		super();
-		modelo capturamodelo=new modelo();
+		Modelo capturamodelo=new Modelo();
 		String capturadomodelo = capturamodelo.getmodelo(html_capturado); 
 		Elements basiconombre = html_capturado.getElementsByClass("standard_equipment_titel");
 		Elements basicomodelo = html_capturado.getElementsByClass("standard_equipment_value");
@@ -70,7 +70,7 @@ public class equipoyacceso {
 	
 	
 	public void setdescripcion(Document html_capturado) throws ExcepcionIntervalo {
-		equipoyacceso descripcion = new equipoyacceso(html_capturado);
+		Equipoyacceso descripcion = new Equipoyacceso(html_capturado);
 	}
 
 }

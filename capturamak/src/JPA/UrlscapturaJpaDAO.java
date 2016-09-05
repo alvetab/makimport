@@ -30,7 +30,7 @@ public class UrlscapturaJpaDAO implements UrlscapturaDAO {
 	
 	@Override
 	public List<Urlscaptura> listarTipo(int i) {
-	Query q = em.createQuery("select a from Urlscaptura a where a.tipo=:arg0").setParameter("arg0", 9);
+	Query q = em.createQuery("select a from Urlscaptura a where a.tipo=:arg0").setParameter("arg0", i);
 	List<Urlscaptura> listado =  q.getResultList();
 		return listado;
 	}

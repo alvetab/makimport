@@ -8,8 +8,8 @@ import org.junit.Test;
 
 import capturamak.ExcepcionIntervalo;
 import capturamak.capturahtml;
-import capturamak.descripcion;
-import capturamak.simboloslogos;
+import capturamak.Descripcion;
+import capturamak.Simboloslogos;
 
 public class simboloslogostest {
 	String web1= new String("http://www.makita.es/parts.html?model=1050DWD&filter=");
@@ -31,7 +31,7 @@ public class simboloslogostest {
 	public void simbolosylogostest() throws ExcepcionIntervalo {
 	try {
 	 capturahtml html= new capturahtml(web4);	
-	 simboloslogos descripcion = new simboloslogos(html.getDatosCapturados());
+	 Simboloslogos descripcion = new Simboloslogos(html.getDatosCapturados());
 	 String[] actual = descripcion.getsimbolos();
 	 
 	 for (int i=0;i<actual.length;i++){

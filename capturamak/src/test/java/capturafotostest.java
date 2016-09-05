@@ -8,8 +8,8 @@ import org.junit.Test;
 
 import capturamak.ExcepcionIntervalo;
 import capturamak.capturahtml;
-import capturamak.descripcion;
-import capturamak.urlfotos;
+import capturamak.Descripcion;
+import capturamak.Urlfotos;
 
 public class capturafotostest {
 	String web1= new String("http://www.makita.es/parts.html?model=1050DWD&filter=");
@@ -31,7 +31,7 @@ public class capturafotostest {
 	public void compruebadescripciontest() throws ExcepcionIntervalo {
 	try {
 	 capturahtml html= new capturahtml(web3);	
-	 urlfotos descripcion = new urlfotos(html.getDatosCapturados());
+	 Urlfotos descripcion = new Urlfotos(html.getDatosCapturados());
 	 String[] actual = descripcion.getfotos();
 	 
 	 for (int i=0;i<actual.length;i++){

@@ -24,7 +24,7 @@ public class fotosdespiece {
 	
 	
 	public fotosdespiece(Document html_capturado) {  //captura las direcciones http para descargar las fotos y mapas del despiece (posteriormente ha de montar todos los maps para construmak)
-		modelo capturamodelo=new modelo();
+		Modelo capturamodelo=new Modelo();
 		String capturadomodelo = capturamodelo.getmodelo(html_capturado); 
 		nombremodelo= new ArrayList<String>();
 		fotos = new ArrayList<String>();

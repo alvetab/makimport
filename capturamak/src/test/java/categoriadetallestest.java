@@ -9,7 +9,7 @@ import org.junit.Test;
 import capturamak.ExcepcionIntervalo;
 import capturamak.capturahtml;
 import capturamak.categoriadetalles;
-import capturamak.descripcion;
+import capturamak.Descripcion;
 
 public class categoriadetallestest {
 	String web1= new String("http://www.makita.es/parts.html?model=1050DWD&filter=");

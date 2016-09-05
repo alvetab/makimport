@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import capturamak.ExcepcionIntervalo;
 import capturamak.capturahtml;
-import capturamak.descripcion;
+import capturamak.Descripcion;
 import capturamak.manualesydespiecesurls;
 
 

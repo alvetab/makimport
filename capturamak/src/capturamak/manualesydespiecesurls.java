@@ -9,7 +9,7 @@ public class manualesydespiecesurls {// captura url de las fotos para su
 
 	public manualesydespiecesurls(Document html_capturado) throws ExcepcionIntervalo {
 		super();
-		modelo modelo = new modelo();
+		Modelo modelo = new Modelo();
 		String nombremodelo = modelo.getmodelo(html_capturado);
 		Elements urlsmanual = html_capturado.select("[href*=_manual]").not(".pdf_link");
 		Elements urlsdespiece = html_capturado.select("[href*=print_partdra]").not("[href*='type=1']").not("[href*='type=3']");

@@ -1,17 +1,19 @@
 package capturamak;
 
+import java.util.Arrays;
+
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
-public class datostecnicos {
+public class Datostecnicos {
 	private String[][] datostecnicos;
 	
-	public datostecnicos() {
+	public Datostecnicos() {
 	}
 
-	public datostecnicos(Document html_capturado) throws ExcepcionIntervalo {
+	public Datostecnicos(Document html_capturado) throws ExcepcionIntervalo {
 		super();
-		modelo modelo =new modelo();
+		Modelo modelo =new Modelo();
 		String nombremodelo=modelo.getmodelo(html_capturado);
 		Elements datosenbruto = html_capturado.select("div#tab_content_techspecs");
 		if (!datosenbruto.isEmpty()){ // si hay pestaña especificaciones
@@ -51,7 +53,24 @@ public class datostecnicos {
 	}
 
 	public void setdescripcion(Document html_capturado) throws ExcepcionIntervalo {
-		equipoyacceso descripcion = new equipoyacceso(html_capturado);
+		Equipoyacceso descripcion = new Equipoyacceso(html_capturado);
 	}
 
+	@Override
+	public String toString() {
+		String stringdatos="<table><tbody>";
+		for (int i = 0; i < datostecnicos.length; i++) {
+			stringdatos=stringdatos+"<tr>";
+			stringdatos=stringdatos+"<td>";
+			stringdatos=stringdatos + datostecnicos[i][0];
+			stringdatos=stringdatos+"</td><td>";
+			stringdatos=stringdatos + datostecnicos[i][1];
+			stringdatos=stringdatos+"</td>";	
+			stringdatos=stringdatos+"</tr>";	
+		}
+			stringdatos=stringdatos+"</tbody></table>";
+			return stringdatos;
+			//return "datostecnicos [datostecnicos=" + Arrays.toString(datostecnicos) + "]";
+	}
 }
+

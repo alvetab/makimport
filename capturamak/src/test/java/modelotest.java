@@ -13,7 +13,7 @@ import com.sun.org.apache.bcel.internal.generic.NEW;
 
 import capturamak.arbolcategoria;
 import capturamak.capturahtml;
-import capturamak.modelo;
+import capturamak.Modelo;
 
 public class modelotest {
 
@@ -33,7 +33,7 @@ String web3= new String("htt://www.dolmar.com.es/accessory/28907/794530-8.html")
 
 	@Test
 	public void modelotest() {
-	 modelo recibido = new modelo();
+	 Modelo recibido = new Modelo();
 	 capturahtml html = new capturahtml(web1);
 	 String actual=recibido.getmodelo( html.getDatosCapturados());
 	assertEquals("1050DWD", actual); 

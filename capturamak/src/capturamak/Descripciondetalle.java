@@ -11,11 +11,11 @@ import org.jsoup.select.Elements;
 
 import sun.security.util.Length;
 
-public class descripciondetalle{
+public class Descripciondetalle{
 		private String masdescripcion;
 		
-		public descripciondetalle(){}
-		public descripciondetalle(Document html_capturado) throws ExcepcionIntervalo{
+		public Descripciondetalle(){}
+		public Descripciondetalle(Document html_capturado) throws ExcepcionIntervalo{
 		super();	
 			Elements descripcioncapturada = html_capturado.getElementsByClass("product_item_info_description");	
 			if (!descripcioncapturada.isEmpty())
@@ -39,6 +39,6 @@ public class descripciondetalle{
 		}
 		
 		public void setdescripcion(Document html_capturado) throws ExcepcionIntervalo {
-			descripciondetalle masdescripcion= new descripciondetalle(html_capturado);
+			Descripciondetalle masdescripcion= new Descripciondetalle(html_capturado);
 			}
 }

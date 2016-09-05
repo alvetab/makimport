@@ -7,7 +7,7 @@ import org.jsoup.nodes.Element;
 import com.sun.corba.se.spi.orbutil.fsm.Guard.Result;
 
 
-public class modelo {
+public class Modelo {
 		String modelo;
 	
 		public String getmodelo(Document html_capturado) {

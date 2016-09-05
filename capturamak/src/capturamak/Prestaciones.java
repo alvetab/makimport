@@ -4,13 +4,13 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-public class prestaciones{
+public class Prestaciones{
 		private String prestaciones;
 		private String prestacioneshtml;
 		
 		
-		public prestaciones(){}
-		public prestaciones(Document html_capturado) throws ExcepcionIntervalo{
+		public Prestaciones(){}
+		public Prestaciones(Document html_capturado) throws ExcepcionIntervalo{
 		super();	
 			Elements descripcioncapturada = html_capturado.getElementsByClass("userbenefits");	
 			if (!descripcioncapturada.isEmpty())
@@ -37,7 +37,7 @@ public class prestaciones{
 		}
 		
 		public void setdescripcion(Document html_capturado) throws ExcepcionIntervalo {
-			prestaciones prestaciones= new prestaciones(html_capturado);
+			Prestaciones prestaciones= new Prestaciones(html_capturado);
 			}
 		
 		

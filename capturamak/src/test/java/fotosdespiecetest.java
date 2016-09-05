@@ -13,7 +13,7 @@ import capturamak.arbolcategoria;
 import capturamak.capturafotos;
 import capturamak.capturahtml;
 import capturamak.fotosdespiece;
-import capturamak.modelo;
+import capturamak.Modelo;
 
 public class fotosdespiecetest {
 	fotosdespiece fotosarray;
@@ -42,7 +42,7 @@ public class fotosdespiecetest {
 	
 	@Test
 	public void fotostest() {
-	 modelo recibido = new modelo();
+	 Modelo recibido = new Modelo();
 	 capturahtml html = new capturahtml(web3);
 	 fotosarray=new fotosdespiece(html.getDatosCapturados());
 	 

@@ -6,11 +6,11 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-public class Capturadespiecepormaquina {
-	ArrayList<String> modelo,posicion,codigopieza,descripcion;
+public class Despiecepormaquina {
+	public ArrayList<String> modelo,posicion,codigopieza,descripcion;
 
-	public Capturadespiecepormaquina(Document html_capturado) {
-		modelo capturamodelo=new modelo();
+	public Despiecepormaquina(Document html_capturado) {
+		Modelo capturamodelo=new Modelo();
 		String capturadomodelo = capturamodelo.getmodelo(html_capturado); 
 		
 		modelo= new ArrayList<String>();			
@@ -31,7 +31,7 @@ public class Capturadespiecepormaquina {
 							codigopieza.add(datosenbruto4.get(1).text());
 							descripcion.add(datosenbruto4.get(2).text());
 							}
-							else {System.out.println("No contiene datos a extraer");}
+							else {System.out.println("No contiene despieces a extraer0");}
 							}
 					}
 		} 
@@ -70,6 +70,34 @@ public class Capturadespiecepormaquina {
 	public String getdescripcion(int i) {
 		return descripcion.get(i);
 	}
-	
+	public String getTabladespiece(){
+			String stringdatos="";
+		if (posicion.size()>0){
+			stringdatos="<table><tbody>";
+			for (int i = 0; i < posicion.size(); i++) {
+			
+				String datoposicion = posicion.get(i);
+				stringdatos=stringdatos+"<tr><td>";
+				stringdatos=stringdatos+datoposicion;
+			
+				String datocodigopieza=codigopieza.get(i);
+				stringdatos=stringdatos+"</td><td>";
+				stringdatos=stringdatos+datocodigopieza;
+			
+			
+				String datodescripcion=descripcion.get(i);
+				stringdatos=stringdatos+"</td><td>";
+				stringdatos=stringdatos+datodescripcion;
+			
+				stringdatos=stringdatos+"</td></tr>";	
+			}
+				
+			stringdatos=stringdatos+"</tbody></table>";
+			}
+				
+		else {System.out.println("No contiene despieces a extraer1");
+		}
+	return stringdatos;
+	}
 	
 }

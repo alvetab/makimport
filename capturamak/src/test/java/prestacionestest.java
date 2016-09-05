@@ -8,8 +8,8 @@ import org.junit.Test;
 
 import capturamak.ExcepcionIntervalo;
 import capturamak.capturahtml;
-import capturamak.descripcion;
-import capturamak.prestaciones;
+import capturamak.Descripcion;
+import capturamak.Prestaciones;
 
 public class prestacionestest {
 	String web1= new String("http://www.makita.es/parts.html?model=1050DWD&filter=");
@@ -31,7 +31,7 @@ public class prestacionestest {
 	public void compruebadescripciontest() throws ExcepcionIntervalo {
 	try {
 	 capturahtml html= new capturahtml(web2);	
-	 prestaciones prestaciones = new prestaciones(html.getDatosCapturados());
+	 Prestaciones prestaciones = new Prestaciones(html.getDatosCapturados());
 	 String actual = prestaciones.getprestaciones();
 	 String actual1 = prestaciones.getprestacioneshtml();
 	 System.out.println(actual); 

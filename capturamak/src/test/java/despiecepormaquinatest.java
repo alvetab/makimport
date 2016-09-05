@@ -14,8 +14,8 @@ import JPA.UrlscapturaJpaDAO;
 import JPA.UrlsmaqmakJpaDAO;
 import capturamak.ExcepcionIntervalo;
 import capturamak.capturahtml;
-import capturamak.descripcion;
-import capturamak.Capturadespiecepormaquina;
+import capturamak.Descripcion;
+import capturamak.Despiecepormaquina;
 
 public class despiecepormaquinatest {
 	String web1= new String("http://www.makita.es/parts.html?model=1050DWD&filter=");
@@ -36,8 +36,8 @@ public class despiecepormaquinatest {
 	//@Test
 	public void compruebadescripciontest() //throws ExcepcionIntervalo
 	{
-	 capturahtml html= new capturahtml(web1);	
-	 Capturadespiecepormaquina despiecepormodelo = new Capturadespiecepormaquina(html.getDatosCapturados());
+	 capturahtml html= new capturahtml(web3);	
+	 Despiecepormaquina despiecepormodelo = new Despiecepormaquina(html.getDatosCapturados());
 	 
 	 
 	 ArrayList<String> actual3 = despiecepormodelo.getnombremodelo();
@@ -56,11 +56,11 @@ public class despiecepormaquinatest {
 	public void compruebaCapturaDespiecesPorMaquinatest() throws SQLException //throws ExcepcionIntervalo
 	{
 	try{ capturahtml html= new capturahtml(web1);	
-	 Capturadespiecepormaquina despiecepormodelo = new Capturadespiecepormaquina(html.getDatosCapturados());
+	 Despiecepormaquina despiecepormodelo = new Despiecepormaquina(html.getDatosCapturados());
 	 
 	 for (int i=0;i<despiecepormodelo.getdescripcion().size();i++){
 	DespiecepormaquinaJpaDAO emurls = new DespiecepormaquinaJpaDAO();
-	emurls.crear(despiecepormodelo.getnombremodelo(i), despiecepormodelo.getposicion(i), despiecepormodelo.getcodigo(i), despiecepormodelo.getdescripcion(i));
+	//emurls.crear(despiecepormodelo.getnombremodelo(i), despiecepormodelo.getposicion(i), despiecepormodelo.getcodigo(i), despiecepormodelo.getdescripcion(i));
 	 
 	 }
 	 }

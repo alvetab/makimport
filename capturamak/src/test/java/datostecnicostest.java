@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import capturamak.ExcepcionIntervalo;
 import capturamak.capturahtml;
-import capturamak.datostecnicos;
+import capturamak.Datostecnicos;
 
 public class datostecnicostest {
 
@@ -30,7 +30,7 @@ public void tearDown() throws Exception {
 @Test
 public void compruebaequipoyaccesoriostest() throws ExcepcionIntervalo {
 try { capturahtml html= new capturahtml(web1);	
- datostecnicos equipoyacces = new datostecnicos(html.getDatosCapturados());
+ Datostecnicos equipoyacces = new Datostecnicos(html.getDatosCapturados());
  String[][] equipo = equipoyacces.getdatostecnicos();
 
  

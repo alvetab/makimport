@@ -15,9 +15,9 @@ import com.sun.org.apache.bcel.internal.generic.NEW;
 import capturamak.ExcepcionIntervalo;
 import capturamak.arbolcategoria;
 import capturamak.capturahtml;
-import capturamak.descripcion;
-import capturamak.equipoyacceso;
-import capturamak.modelo;
+import capturamak.Descripcion;
+import capturamak.Equipoyacceso;
+import capturamak.Modelo;
 import jdk.nashorn.internal.runtime.ECMAErrors;
 
 public class equipoyaccesoriostest {
@@ -39,7 +39,7 @@ public void tearDown() throws Exception {
 public void compruebaequipoyaccesoriostest() throws ExcepcionIntervalo {
 try {
  capturahtml html= new capturahtml(web4);	
- equipoyacceso equipoyacces = new equipoyacceso(html.getDatosCapturados());
+ Equipoyacceso equipoyacces = new Equipoyacceso(html.getDatosCapturados());
  String[][] equipo = equipoyacces.getequipobasico();
  String[][] accesorios = equipoyacces.getaccesorios();
  
