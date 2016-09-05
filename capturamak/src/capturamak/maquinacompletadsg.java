@@ -1,9 +1,9 @@
 package capturamak;
 
-import entities.maquinacompleta;
+import entities.Maquinacompleta;
 
-public class maquinacompletadsg extends maquinacompleta{
-public maquinacompleta 	datoparadsg;
+public class maquinacompletadsg extends Maquinacompleta{
+public Maquinacompleta 	datoparadsg;
 	
 	
 }

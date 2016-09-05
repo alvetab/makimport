@@ -2,9 +2,18 @@ package entities;
 
 import java.io.Serializable;
 
-public class maquinacompleta implements Serializable {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+
+@Entity
+@NamedQuery(name = "Maquinacompleta.findAll", query = "SELECT u FROM Maquinacompleta u")
+public class Maquinacompleta implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
+	private int id;
+	
 	private String modelo;
 	private String categoria;
 	private String categoriapadre;
@@ -68,7 +77,7 @@ public class maquinacompleta implements Serializable {
 		this.simboloslogos = simboloslogos;
 	}
 	
-	public maquinacompleta() {
+	public Maquinacompleta() {
 	}
 	public String getCategoria() {
 		return this.categoria;

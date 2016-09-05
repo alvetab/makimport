@@ -28,7 +28,7 @@ public class Urlscaptura implements Serializable {
 
 	private boolean capturado;
 
-	@Column(unique = true, nullable = false)
+	
 	private String modelo;
 
 	private int tipo;

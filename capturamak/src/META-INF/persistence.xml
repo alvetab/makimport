@@ -10,6 +10,7 @@
 		<class>entities.Urlscaptura</class>
 		<class>entities.Urlsparadespieces</class>
 		<class>entities.Despiecepormaquina</class>
+		<class>entities.Maquinacompleta</class>
 		
 		<properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />

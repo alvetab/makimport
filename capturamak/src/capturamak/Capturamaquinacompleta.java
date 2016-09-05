@@ -5,7 +5,8 @@ import static org.junit.Assert.assertEquals;
 import org.jsoup.nodes.Document;
 import org.junit.Test;
 
-import entities.maquinacompleta;
+import JPA.MaquinacompletaJpaDAO;
+import entities.Maquinacompleta;
 
 public class Capturamaquinacompleta {
 	private String modelo;
@@ -39,13 +40,12 @@ public class Capturamaquinacompleta {
 		capturaUrlfotos();
 		capturaSimboloslogos();
 		capturaManualydespiece();
-		
+		grabarmaquinacompleta();		
 	}
 	
-	
-	
+		
 	public void grabarmaquinacompleta(){
-		maquinacompleta maquina = new maquinacompleta();
+		Maquinacompleta maquina = new Maquinacompleta();
 		maquina.setModelo(modelo);
 		maquina.setCategoria(categoria);
 		maquina.setCategoriapadre(categoriapadre);
@@ -59,6 +59,8 @@ public class Capturamaquinacompleta {
 		maquina.setManualydespiece(manualydespiece);
 		maquina.setEquipoyaccesorios(equipoyaccesorios);
 		maquina.setSimboloslogos(simboloslogos);
+		MaquinacompletaJpaDAO em = new MaquinacompletaJpaDAO();
+		em.crear(maquina);
 		}
 		
 		public void capturaModelo() {
