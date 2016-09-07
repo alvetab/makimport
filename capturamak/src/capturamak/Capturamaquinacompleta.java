@@ -2,8 +2,14 @@ package capturamak;
 
 import static org.junit.Assert.assertEquals;
 
+import java.sql.SQLException;
+
+import org.hibernate.engine.jdbc.spi.SqlExceptionHelper;
+import org.hibernate.exception.ConstraintViolationException;
 import org.jsoup.nodes.Document;
 import org.junit.Test;
+
+import com.mysql.jdbc.exceptions.MySQLDataException;
 
 import JPA.MaquinacompletaJpaDAO;
 import entities.Maquinacompleta;
@@ -23,8 +29,8 @@ public class Capturamaquinacompleta {
 	private String equipoyaccesorios;
 	private String simboloslogos;
 	private Document html_capturado;
-	
-	public Capturamaquinacompleta(String url) throws Exception{
+
+	public Capturamaquinacompleta(String url) throws Exception {
 		super();
 		capturadocument(url);
 		capturaModelo();
@@ -40,11 +46,12 @@ public class Capturamaquinacompleta {
 		capturaUrlfotos();
 		capturaSimboloslogos();
 		capturaManualydespiece();
-		grabarmaquinacompleta();		
-	}
-	
+		grabarmaquinacompleta();
 		
-	public void grabarmaquinacompleta(){
+	}
+
+	public  String grabarmaquinacompleta() {
+		
 		Maquinacompleta maquina = new Maquinacompleta();
 		maquina.setModelo(modelo);
 		maquina.setCategoria(categoria);
@@ -59,93 +66,150 @@ public class Capturamaquinacompleta {
 		maquina.setManualydespiece(manualydespiece);
 		maquina.setEquipoyaccesorios(equipoyaccesorios);
 		maquina.setSimboloslogos(simboloslogos);
+		try {
 		MaquinacompletaJpaDAO em = new MaquinacompletaJpaDAO();
 		em.crear(maquina);
 		}
-		
-		public void capturaModelo() {
-		Modelo nommodelo= new Modelo();
-		modelo=nommodelo.getmodelo(html_capturado);
-		}
-		public void capturaDescripcion() throws ExcepcionIntervalo{
-			Descripcion capdescripcion= new Descripcion(html_capturado);
-			descripcion=capdescripcion.getdescripcion();
-		}
-		public void capturaCategoria() {
-			arbolcategoria arbolcategoria= new arbolcategoria(html_capturado);
-			categoria=arbolcategoria.getcategoria();
-		}
-		public void capturaCategoriapadre() {
-			arbolcategoria arbolcategoria= new arbolcategoria(html_capturado);
-			categoriapadre=arbolcategoria.getpadre();
+		catch (Exception e){
+			System.out.println(e);
 		}
 		
-		public void capturaDescripciondetalle() throws ExcepcionIntervalo{
-			Descripciondetalle detalle= new Descripciondetalle(html_capturado);
-			descripciondetalle=detalle.getdescripcion();
-			}
-		public void capturaDescripcioncorta() throws ExcepcionIntervalo{
-			Descripcioncorta detalle= new Descripcioncorta(html_capturado);
-			if (detalle!=null){
-			
-			descripcioncorta=detalle.getdescripcion();
-			}
-			else descripcioncorta="";
-			}
-		
-		public void capturaPrestaciones() throws ExcepcionIntervalo{
-			Prestaciones prestacionescap= new Prestaciones(html_capturado);
-			prestaciones=prestacionescap.getprestacioneshtml();
-			}
-		
-		public void capturaDatostecnicos() throws ExcepcionIntervalo{
-			Datostecnicos datostec= new Datostecnicos(html_capturado);
-			datostecnicos=datostec.toString();
+		return "grabada";
 		}
 		
-		public void capturaUrlfotos() throws ExcepcionIntervalo{
-			Urlfotos capfotos= new Urlfotos(html_capturado);
-			urlfotos=capfotos.toString();
+
+	public void capturaModelo() throws ExcepcionIntervalo {
+		Modelo nommodelo = new Modelo();
+		modelo = nommodelo.getmodelo(html_capturado);
+	}
+
+	public void capturaDescripcion() throws ExcepcionIntervalo {
+		Descripcion capdescripcion = new Descripcion(html_capturado);
+		descripcion = capdescripcion.getdescripcion();
+	}
+
+	public void capturaCategoria() throws ExcepcionIntervalo {
+		arbolcategoria arbolcategoria = new arbolcategoria(html_capturado);
+		categoria = arbolcategoria.getcategoria();
+	}
+
+	public void capturaCategoriapadre() throws ExcepcionIntervalo {
+		arbolcategoria arbolcategoria = new arbolcategoria(html_capturado);
+		categoriapadre = arbolcategoria.getpadre();
+	}
+
+	public void capturaDescripciondetalle() throws ExcepcionIntervalo {
+		try {
+			Descripciondetalle detalle = new Descripciondetalle(html_capturado);
+			descripciondetalle = detalle.getdescripcion();
+		} catch (Exception e) {
+			descripciondetalle = new String("");
+			// TODO: handle exception
 		}
-		public void capturaDespiecepormaquina() {
-			Despiecepormaquina despieces= new Despiecepormaquina(html_capturado);
-			despiecepormaquina=despieces.getTabladespiece();
+	}
+
+	public void capturaDescripcioncorta() throws ExcepcionIntervalo {
+		try {
+			Descripcioncorta detalle = new Descripcioncorta(html_capturado);
+			if (detalle != null) {
+
+				descripcioncorta = detalle.getdescripcion();
+			} else
+				descripcioncorta = "";
+		} catch (Exception e) {
+			descripcioncorta = new String("");
+			// TODO: handle exception
 		}
-		public void capturaManualydespiece() throws ExcepcionIntervalo {
-			Manualesydespiecesurls manudespi= new Manualesydespiecesurls(html_capturado);
-			manualydespiece=manudespi.toString();
+	}
+
+	public void capturaPrestaciones() throws ExcepcionIntervalo {
+		try {
+			Prestaciones prestacionescap = new Prestaciones(html_capturado);
+			prestaciones = prestacionescap.getprestacioneshtml();
+		} catch (Exception e) {
+			prestaciones = new String("");
+			// TODO: handle exception
 		}
-		public void capturaEquipoyaccesorios() throws ExcepcionIntervalo {
-			Equipoyacceso capequaccess= new Equipoyacceso(html_capturado);
-			equipoyaccesorios=capequaccess.toString();
+	}
+
+	public void capturaDatostecnicos() throws ExcepcionIntervalo {
+		try {
+			Datostecnicos datostec = new Datostecnicos(html_capturado);
+			datostecnicos = datostec.toString();
+		} catch (Exception e) {
+			datostecnicos = new String("");
+			// TODO: handle exception
 		}
-		public void capturaSimboloslogos() throws ExcepcionIntervalo {
-			Simboloslogos simboloscap= new Simboloslogos(html_capturado);
-			simboloslogos=simboloscap.toString();
+	}
+
+	public void capturaUrlfotos() throws ExcepcionIntervalo {
+		try {
+			Urlfotos capfotos = new Urlfotos(html_capturado);
+			urlfotos = capfotos.toString();
+		} catch (Exception e) {
+			urlfotos = new String("");
+			// TODO: handle exception
 		}
-		
-		
-		
-		public void capturadocument(String url) throws ExcepcionIntervalo {
-			try {
-				html_capturado= new capturahtml(url).getDatosCapturados();	
-		 
-			} catch (Exception e) {
+	}
+
+	public void capturaDespiecepormaquina() throws ExcepcionIntervalo {
+		try {
+			Despiecepormaquina despieces = new Despiecepormaquina(html_capturado);
+			despiecepormaquina = despieces.getTabladespiece();
+		} catch (Exception e) {
+			despiecepormaquina = new String("");
+			// TODO: handle exception
+		}
+	}
+
+	public void capturaManualydespiece() throws ExcepcionIntervalo {
+		try {
+			Manualesydespiecesurls manudespi = new Manualesydespiecesurls(html_capturado);
+			manualydespiece = manudespi.toString();
+		} catch (Exception e) {
+			manualydespiece = new String("");
+			// TODO: handle exception
+		}
+	}
+
+	public void capturaEquipoyaccesorios() throws ExcepcionIntervalo {
+		try {
+			Equipoyacceso capequaccess = new Equipoyacceso(html_capturado);
+			equipoyaccesorios = capequaccess.toString();
+		} catch (Exception e) {
+			equipoyaccesorios = new String("");
+			// TODO: handle exception
+		}
+	}
+
+	public void capturaSimboloslogos() throws ExcepcionIntervalo {
+		try {
+			Simboloslogos simboloscap = new Simboloslogos(html_capturado);
+			simboloslogos = simboloscap.toString();
+		} catch (Exception e) {
+			simboloslogos = new String("");
+			// TODO: handle exception
+		}
+	}
+
+	public void capturadocument(String url) throws ExcepcionIntervalo {
+		try {
+			html_capturado = new capturahtml(url).getDatosCapturados();
+
+		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("No hay manuales ni despieces que capturar en esta pagina" + e);
-			}
 		}
+	}
 
+	@Override
+	public String toString() {
+		return "Capturamaquinacompleta [modelo=" + modelo + ", categoria=" + categoria + ", categoriapadre="
+				+ categoriapadre + ", descripcion=" + descripcion + ", descripcioncorta=" + descripcioncorta
+				+ ", descripciondetalle=" + descripciondetalle + ", prestaciones=" + prestaciones + ", datostecnicos="
+				+ datostecnicos + ", urlfotos=" + urlfotos + ", despiecepormaquina=" + despiecepormaquina
+				+ ", manualydespiece=" + manualydespiece + ", equipoyaccesorios=" + equipoyaccesorios
+				+ ", simboloslogos=" + simboloslogos + "]";
+	}
 
-
-		@Override
-		public String toString() {
-			return "Capturamaquinacompleta [modelo=" + modelo + ", categoria=" + categoria + ", categoriapadre="
-					+ categoriapadre + ", descripcion=" + descripcion + ", descripcioncorta=" + descripcioncorta
-					+ ", descripciondetalle=" + descripciondetalle + ", prestaciones=" + prestaciones
-					+ ", datostecnicos=" + datostecnicos + ", urlfotos=" + urlfotos + ", despiecepormaquina="
-					+ despiecepormaquina + ", manualydespiece=" + manualydespiece + ", equipoyaccesorios="
-					+ equipoyaccesorios + ", simboloslogos=" + simboloslogos + "]";
-		}
-		
 }

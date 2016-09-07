@@ -345,7 +345,7 @@ public class CapturaAction  implements Runnable{
 	    		String modelo = new String();
 			
 			try {
-				emurls.crear(modelo.valueOf(valuemodelo),suburl,subtipo,true,true);
+				emurls.crear(modelo.valueOf(valuemodelo),suburl,subtipo,false,true);
 				
 			} catch (SQLException e) {
 			// TODO Auto-generated catch block

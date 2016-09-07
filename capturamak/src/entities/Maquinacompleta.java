@@ -2,8 +2,12 @@ package entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.NamedQuery;
 
 @Entity
@@ -12,20 +16,32 @@ public class Maquinacompleta implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
+	@Column(unique=true)
 	private String modelo;
+	
 	private String categoria;
 	private String categoriapadre;
 	private String descripcion;
+	@Lob
 	private String descripcioncorta;
+	@Lob
 	private String descripciondetalle;
+	@Lob
 	private String prestaciones;
+	@Lob
 	private String datostecnicos;
+	@Lob
 	private String urlfotos;
+	@Lob
 	private String despiecepormaquina;
+	@Lob
 	private String manualydespiece;
+	@Lob
 	private String equipoyaccesorios;
+	@Lob
 	private String simboloslogos;
 	
 	public String getCategoriapadre() {

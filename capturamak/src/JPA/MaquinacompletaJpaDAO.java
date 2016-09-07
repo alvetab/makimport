@@ -35,7 +35,7 @@ public class MaquinacompletaJpaDAO implements MaquinacompletaDAO {
 		em.persist(maquinacompleta);
 		em.getTransaction().commit();
 		em.close();
-		PersistenceManager.INSTANCE.close();
+		//PersistenceManager.INSTANCE.close();
 	}
 	
 

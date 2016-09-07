@@ -41,9 +41,18 @@ public class UrlscapturaJpaDAO implements UrlscapturaDAO {
 		em.persist(urlscaptura);
 		em.getTransaction().commit();
 		em.close();
-		PersistenceManager.INSTANCE.close();
+		//PersistenceManager.INSTANCE.close();
 	}
 	
+	@Override
+	public void update(Urlscaptura urlscaptura) {
+		em.getTransaction().begin();
+		int urlid=urlscaptura.getId();
+		Urlscaptura amodificar=em.find(Urlscaptura.class, urlid);
+		amodificar=em.merge(urlscaptura);
+		em.getTransaction().commit();
+		em.close();
+		}
 
 	@Override
 	public List listaruno() {

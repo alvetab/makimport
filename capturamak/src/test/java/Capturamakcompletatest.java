@@ -2,10 +2,14 @@ package test.java;
 
 import static org.junit.Assert.*;
 
+import java.sql.SQLException;
+import java.util.List;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import JPA.UrlscapturaJpaDAO;
 import capturamak.Capturamaquinacompleta;
 import capturamak.Parsertipo;
 import entities.Urlscaptura;
@@ -26,17 +30,42 @@ public class Capturamakcompletatest {
 	public void test() throws Exception {
 	
 	Parsertipo capturaprimero= new Parsertipo();
-	Capturamaquinacompleta actual;
+	Capturamaquinacompleta actual = null;
 	capturaprimero.setrecuperasurls(1);
-//	url1=capturaprimero.getrecuperaprimero();
-	url1=capturaprimero.getrecuperaporId(30);
+	
+	for (int i = 5; i < 20; i++) {
+	url1=capturaprimero.getrecuperaporId(i);
+	if (url1.getActivo()&&!url1.getCapturado()){
 	String url=url1.getUrl().toString();
-	System.out.println(web3);
-	actual = new Capturamaquinacompleta(web3);
+	
+	
+	try {
+		actual = new Capturamaquinacompleta(url);
+		
+		url1.setCapturado(true);
+		UrlscapturaJpaDAO emurls = new UrlscapturaJpaDAO();
+		emurls.update(url1);
+		
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 	System.out.println(actual.toString());
-	assertEquals("!","1");	
+	}
+	else {System.out.println(url1.getUrl().toString()+ " ya capturada o producto no activo");
+	//url1.setCapturado(false);
+	//url1.setActivo(false);
+	//UrlscapturaJpaDAO emurls = new UrlscapturaJpaDAO();
+	//emurls.update(url1);
+	
+	}
+	}
+	
+		
+	}
+	
+	//assertEquals("!","1");	
 		
 	
 	}
 
-}

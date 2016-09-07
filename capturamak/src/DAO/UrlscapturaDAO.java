@@ -9,5 +9,6 @@ public interface UrlscapturaDAO {
 	List<Urlscaptura> listarTipo(int i);
 	
 	void crear (Urlscaptura urlsdocsdol);
-	String geturl(int i);	
+	String geturl(int i);
+	void update(Urlscaptura urlscaptura);	
 }
