@@ -2,21 +2,30 @@ package test.java;
 
 import static org.junit.Assert.*;
 
-import java.io.IOException;
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.validator.PublicClassValidator;
+import org.jsoup.nodes.Document;
+
 
 import capturamak.arbolcategoria;
 import capturamak.capturahtml;
+import capturamak.Capturajsonmapas;
 import capturamak.Fotosdespiece;
+import entities.mapadespiece;
+import capturamak.Mapasdespieces;
 import capturamak.Modelo;
 
-public class fotosdespiecetest {
-	Fotosdespiece fotosarray;
+public class mapasdespiecestest {
+	Mapasdespieces mapasarray;
 
 	String web1= new String("http://www.makita.es/tool/22141/2704.html");
 	String web2= new String("http://www.dolmar.com.es/tool/22825/EV3213.html");
@@ -41,18 +50,31 @@ public class fotosdespiecetest {
 		
 	
 	@Test
-	public void fotostest() throws IOException {
+	public void mapasdespiecetest() throws Exception {
 	 Modelo recibido = new Modelo();
-	 capturahtml html = new capturahtml(web3);
-	 fotosarray=new Fotosdespiece(html.getDatosCapturados());
-	 ArrayList<String> urlfotos=fotosarray.getfotos();
-	 fotosarray.savefotos();
-	 //for (String actual : urlfotos) {
-		 
+	 capturahtml html_capturado = new capturahtml(web3);
+	 String nommodelo=recibido.getmodelo(html_capturado.getDatosCapturados());
+	 mapasarray=new Mapasdespieces(html_capturado.getDatosCapturados());
+	 int i=0;
+	 for (String urlmapa : mapasarray.urlmapas()) {
 		
+		 System.out.println(urlmapa);
+		Capturajsonmapas mapacapturado= new Capturajsonmapas(urlmapa);
+		String datosenbruto = mapacapturado.getDatosCapturados();
+		System.out.println(datosenbruto);
+		 mapadespiece mapa= new mapadespiece();
+		 String xml=mapa.tomapxml(datosenbruto,nommodelo);
+		 
+		 try (Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(nommodelo+"_"+i+".txt"), "utf-8"))) {
+	   writer.write(xml);
+	   	}
+		 i++;
+		 
+		}
 	
-	 //System.err.println(actual);}
-	//assertEquals("1050DWD", actual); 
+	 
+	 String actual= mapasarray.toString();
+	assertEquals("1050DWD", actual); 
 	}
 	
 
