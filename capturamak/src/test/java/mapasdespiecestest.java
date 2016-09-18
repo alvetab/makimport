@@ -55,27 +55,24 @@ public class mapasdespiecestest {
 	 capturahtml html_capturado = new capturahtml(web3);
 	 String nommodelo=recibido.getmodelo(html_capturado.getDatosCapturados());
 	 mapasarray=new Mapasdespieces(html_capturado.getDatosCapturados());
-	 int i=0;
+	 String xml="";
 	 for (String urlmapa : mapasarray.urlmapas()) {
-		
+		 
 		 System.out.println(urlmapa);
 		Capturajsonmapas mapacapturado= new Capturajsonmapas(urlmapa);
 		String datosenbruto = mapacapturado.getDatosCapturados();
 		System.out.println(datosenbruto);
 		 mapadespiece mapa= new mapadespiece();
-		 String xml=mapa.tomapxml(datosenbruto,nommodelo);
-		 
-		 try (Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(nommodelo+"_"+i+".txt"), "utf-8"))) {
+		 xml=xml+mapa.tomapxml(datosenbruto,nommodelo);
+	 } 	
+		 try (Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(nommodelo+".xml"), "utf-8"))) {
 	   writer.write(xml);
 	   	}
-		 i++;
 		 
-		}
-	
-	 
+		 
 	 String actual= mapasarray.toString();
 	assertEquals("1050DWD", actual); 
-	}
+}
 	
 
 	public void arbolcategoriatest() {

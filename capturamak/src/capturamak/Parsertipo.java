@@ -45,6 +45,12 @@ public class Parsertipo {
 		url=listasurls.get(i);
 		return url;
 	}
+	public static int tamanolista(){
+		int tamanolista=listasurls.size();
+		System.out.println(tamanolista);
+		return tamanolista;
+	}
+	
 	public static Urlscaptura getrecuperaprimero(){
 		Urlscaptura primer;
 		primer=listasurls.get(0);

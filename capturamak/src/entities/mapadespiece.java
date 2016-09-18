@@ -46,9 +46,9 @@ public mapadespiece(String json) throws Exception {
 public String tomapxml(String json,String nommodelo){
 	Gson gson = new Gson();
 	Page page = gson.fromJson(json, Page.class);
-	String imgsrc="<img src =\"http://www.construmak.com/images/imagenes/"+nommodelo + "_"+ page.tek_Index+".png\" usemap=\"#"+ nommodelo +"_"+ page.tek_Index+"\">";
+	//String imgsrc="<img src =\"http://www.construmak.com/images/imagenes/"+nommodelo + "_"+ page.tek_Index+".png\" usemap=\"#"+ nommodelo +"_"+ page.tek_Index+"\">";
 	String area="<area shape=\"rect\" coords=";
-	String mapxml=imgsrc+"<map name=\"cambiar3\">";
+	String mapxml="<map name=\""+nommodelo + "_"+ page.tek_Index+"\">";
 	for (Item item : page.parts){
 	        System.out.println("    " + item.model);
 	       mapxml = mapxml + area + "\""+ item.x + "," + item.y + "," + String.valueOf(Integer.parseInt(item.x)+

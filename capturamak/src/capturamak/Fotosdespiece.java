@@ -63,7 +63,7 @@ public class Fotosdespiece {
 		}
 	
 	public void savefotos() throws IOException {
-		int i=0;
+		int i=1;
 		for (String stringurl : fotos) {
 			Image image = null;
 			 //image = ImageIO.read(url);

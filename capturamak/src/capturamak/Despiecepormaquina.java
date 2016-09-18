@@ -82,7 +82,7 @@ public class Despiecepormaquina {
 			
 				String datocodigopieza=codigopieza.get(i);
 				stringdatos=stringdatos+"</td><td>";
-				stringdatos=stringdatos+datocodigopieza;
+				stringdatos=stringdatos+"[L]"+datocodigopieza+"|"+datocodigopieza+"[/L]";
 			
 			
 				String datodescripcion=descripcion.get(i);

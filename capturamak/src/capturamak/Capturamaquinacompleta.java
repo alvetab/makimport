@@ -47,9 +47,30 @@ public class Capturamaquinacompleta {
 		capturaSimboloslogos();
 		capturaManualydespiece();
 		grabarmaquinacompleta();
+		savefilesdespiecesxmljpgs();
 		
 	}
-
+	public Capturamaquinacompleta(String url,int i) throws Exception {
+		super();
+		capturadocument(url);
+		//capturaModelo();
+		//capturaDescripcion();
+		//capturaDescripcioncorta();
+		//capturaCategoria();
+		//capturaCategoriapadre();
+		//capturaDescripciondetalle();
+		//capturaDespiecepormaquina();
+		//capturaPrestaciones();
+		//capturaDatostecnicos();
+		//capturaEquipoyaccesorios();
+		//capturaUrlfotos();
+		//capturaSimboloslogos();
+		//capturaManualydespiece();
+		//grabarmaquinacompleta();
+		savefilesdespiecesxmljpgs();
+		
+	}
+	
 	public  String grabarmaquinacompleta() {
 		
 		Maquinacompleta maquina = new Maquinacompleta();
@@ -202,6 +223,21 @@ public class Capturamaquinacompleta {
 		}
 	}
 
+	public void savefilesdespiecesxmljpgs() throws ExcepcionIntervalo {
+	try {
+		filesdespiecesxmljpg paragrabar= new filesdespiecesxmljpg();
+		paragrabar.savefotosdespiece(html_capturado);
+		paragrabar.savemapasdespieces(html_capturado);
+		
+	} catch (Exception e) {e.printStackTrace();
+	System.out.println("no hay despieces");
+	}	
+	}
+	
+	public String pestanasdsg() {
+		return "[I]" + simboloslogos + "[/I]" + "[PT]" + prestaciones + "[/PT]" +"[ET]"+ datostecnicos + "[/ET]" + "[AC]" + equipoyaccesorios +
+				"[/AC]" + "[PD]"+ "[P]"+  manualydespiece + "[/P]" + "[S]" + "imagenes" + "[/S]" + despiecepormaquina + "[/PD]";
+	}
 	@Override
 	public String toString() {
 		return "Capturamaquinacompleta [modelo=" + modelo + ", categoria=" + categoria + ", categoriapadre="
@@ -211,5 +247,7 @@ public class Capturamaquinacompleta {
 				+ ", manualydespiece=" + manualydespiece + ", equipoyaccesorios=" + equipoyaccesorios
 				+ ", simboloslogos=" + simboloslogos + "]";
 	}
+	
+	
 
 }

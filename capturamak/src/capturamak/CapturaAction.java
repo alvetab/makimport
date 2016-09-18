@@ -34,26 +34,22 @@ public class CapturaAction  implements Runnable{
 	    private CapturaAction(String accion,Properties properties) {
 	        this.accion = accion;
 	        this.properties=properties;
-	        
 	        System.out.println("accion a realizar: " + this.accion);
 	    }
 
 	    public CapturaAction() {
-			// TODO Auto-generated constructor stub
-		}
+			}
 
-		public static CapturaAction getSingletonInstance(String accion,Properties properties) {
+	    public static CapturaAction getSingletonInstance(String accion,Properties properties) {
 	        if (capturaaccion == null){
 	            capturaaccion = new CapturaAction(accion,properties);
 	        }
 	        else{
 	            System.out.println("Espera a que finalicen las capturas antes de volver a iniciar el proceso:"+ accion);
 	        }
-	        
 	        return capturaaccion;
 	    }
 	    
-	 
 	    @Override
 	    public CapturaAction clone(){
 	        try {
@@ -64,15 +60,11 @@ public class CapturaAction  implements Runnable{
 	        return null; 
 	    }// metodos getter y setter
 	    
-	   
 	    public CapturaAction(String urls,int tipo){
 	    	this.urls=urls;
 	    	this.tipo=tipo;
-	    	
 	    }
-	    
-	    
-	 
+	   
 	     
 	    public void captura() throws InterruptedException{
 	    	listafinal = new ArrayList<String>();
@@ -80,7 +72,6 @@ public class CapturaAction  implements Runnable{
 	    		System.out.println("ya hay un proceso de captura en marcha");
 	    	}
 	    	else {
-	    	
 	    	if (properties.getProperty("CWM").contains("false")){
 			   System.out.println("No va a capturar Datos generales Makita");
 		   }
@@ -96,7 +87,6 @@ public class CapturaAction  implements Runnable{
 		       } 
 			   else {
 				   System.out.println("captura nuevos Makita");
-				   
 			   }
 		   }
 		   
@@ -292,6 +282,7 @@ public class CapturaAction  implements Runnable{
 	    	Grabarlista(listafinal);
 		   capturando=0;
 		   capturaaccion=null;
+		   listafinal=null;
 		   
 	}
 	    @Override

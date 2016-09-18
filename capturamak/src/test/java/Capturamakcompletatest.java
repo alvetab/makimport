@@ -31,9 +31,9 @@ public class Capturamakcompletatest {
 	
 	Parsertipo capturaprimero= new Parsertipo();
 	Capturamaquinacompleta actual = null;
-	capturaprimero.setrecuperasurls(1);
+	capturaprimero.setrecuperasurls(3);
 	
-	for (int i = 5; i < 20; i++) {
+	for (int i = 1; i<=capturaprimero.tamanolista(); i++) {
 	url1=capturaprimero.getrecuperaporId(i);
 	if (url1.getActivo()&&!url1.getCapturado()){
 	String url=url1.getUrl().toString();
@@ -50,7 +50,7 @@ public class Capturamakcompletatest {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-	System.out.println(actual.toString());
+	System.out.println(actual.pestanasdsg());
 	}
 	else {System.out.println(url1.getUrl().toString()+ " ya capturada o producto no activo");
 	//url1.setCapturado(false);

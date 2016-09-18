@@ -77,7 +77,7 @@ public class Equipoyacceso {
 				stringdatos=stringdatos+"<td>";
 				stringdatos=stringdatos + equipobasico[i][0];
 				stringdatos=stringdatos+"</td><td>";
-				stringdatos=stringdatos + equipobasico[i][1];
+				stringdatos=stringdatos +"[L]"+ equipobasico[i][1]+"|"+ equipobasico[i][1]+"[/L]";
 				stringdatos=stringdatos+"</td>";	
 				stringdatos=stringdatos+"</tr>";	
 			}
@@ -90,7 +90,7 @@ public class Equipoyacceso {
 				stringdatos=stringdatos+"<td>";
 				stringdatos=stringdatos + accesorios[i][0];
 				stringdatos=stringdatos+"</td><td>";
-				stringdatos=stringdatos + accesorios[i][1];
+				stringdatos=stringdatos +"[L]"+ accesorios[i][1]+"|"+accesorios[i][1]+"[/L]";
 				stringdatos=stringdatos+"</td>";	
 				stringdatos=stringdatos+"</tr>";	
 			}
