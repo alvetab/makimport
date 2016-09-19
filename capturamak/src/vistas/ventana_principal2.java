@@ -219,7 +219,7 @@ public class ventana_principal2 extends JFrame {
 		
 		JToolBar toolBar = new JToolBar();
 		
-		JButton btnCapturar = new JButton("CAPTURAR");
+		JButton btnCapturar = new JButton("Capturar urls parsear");
 		btnCapturar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -274,11 +274,28 @@ public class ventana_principal2 extends JFrame {
 				}
 		});
 		
-		JButton ficheros_despiece = new JButton("Crear ficheros despiece");
+		JButton ficheros_despiece = new JButton("Generar datos");
 		ficheros_despiece.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			}
+				
+				System.out.println("generando");
+				CapturaAction iniciarcapturas = CapturaAction.getSingletonInstance("Generar datos", getproperties());
+				try {
+					ini = getproperties();
+					tosaveproperties(ini);
+					iniciarcapturas.generarportipo();
+					
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				System.out.println("Datos Generados");
+				}
 		});
+			
 		
 		
 		
@@ -360,12 +377,12 @@ public class ventana_principal2 extends JFrame {
 							.addComponent(scroll, GroupLayout.PREFERRED_SIZE, 600, GroupLayout.PREFERRED_SIZE)
 							.addGap(39)
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(btnNewButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(btnCapturar)
-									.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addGap(97)
 									.addComponent(btnCancelar))
 								.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
-									.addComponent(btnNewButton, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+									.addComponent(btnCapturar, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 									.addComponent(ficheros_despiece, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE))))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
@@ -501,14 +518,14 @@ public class ventana_principal2 extends JFrame {
 							.addComponent(scroll, GroupLayout.PREFERRED_SIZE, 388, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED))
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(274)
+							.addGap(233)
 							.addComponent(btnNewButton)
+							.addGap(18)
+							.addComponent(btnCapturar)
 							.addGap(18)
 							.addComponent(ficheros_despiece)
 							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(btnCapturar)
-								.addComponent(btnCancelar))
+							.addComponent(btnCancelar)
 							.addGap(21)))
 					.addGap(86))
 		);
